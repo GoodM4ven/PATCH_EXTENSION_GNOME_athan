@@ -5,5 +5,5 @@
     "description": "A modified version of the original \"azan\" notifier, prayer reminder and Hijri date displayer extension by [fahrinh].\n\nKeywords: Islam, Islamic, notification, time, calendar, prayers.",
     "settings-schema": "org.gnome.shell.extensions.athan",
     "shell-version": ["47"],
-    "version": 12
+    "version": 13
 }
