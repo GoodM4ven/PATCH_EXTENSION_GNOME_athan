@@ -1,0 +1,450 @@
+# AthanTimes extension for GNOME Shell
+# Abdo Eid <abdoeid.eg@ieee.org>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 15\n"
+"POT-Creation-Date: 2024-12-12 00:57+0200\n"
+"Last-Translator: Abdo Eid <abdoeid.eg@ieee.org>\n"
+"Language-Team: Arabic <LL@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: extension.js:22 extension.js:24 extension.js:26 extension.js:29
+#: src/extension.js:24
+msgid "Azan"
+msgstr "المؤذن"
+
+#: extension.js:47 extension.js:122 extension.js:150 extension.js:49
+#: extension.js:124 extension.js:152 extension.js:51 extension.js:126
+#: extension.js:154 extension.js:60 extension.js:135 extension.js:163
+#: src/extension.js:49 src/extension.js:124 src/extension.js:150
+msgid "..."
+msgstr "***"
+
+#: extension.js:55 extension.js:57 extension.js:59 extension.js:68
+#: src/extension.js:57
+msgid "%A %B %e, %Y"
+msgstr "%A %B %e، %Y"
+
+#: extension.js:64 extension.js:73 src/extension.js:62
+msgid "Al-Ahad"
+msgstr "الأحد"
+
+#: extension.js:65 extension.js:74 src/extension.js:63
+msgid "Al-Ithnan"
+msgstr "الاثنين"
+
+#: extension.js:66 extension.js:75 src/extension.js:64
+msgid "Al-Thulatha'"
+msgstr "الثلاثاء"
+
+#: extension.js:67 extension.js:76 src/extension.js:65
+msgid "Al-Arbi'a'"
+msgstr "الأربعاء"
+
+#: extension.js:68 extension.js:77 src/extension.js:66
+msgid "Al-Khamees"
+msgstr "الخميس"
+
+#: extension.js:69 extension.js:78 src/extension.js:67
+msgid "Al-Jumu'ah"
+msgstr "الجمعة"
+
+#: extension.js:70 extension.js:79 src/extension.js:68
+msgid "Al-Ssabt"
+msgstr "السبت"
+
+#: extension.js:73 extension.js:82 src/extension.js:71
+msgid "Muharram"
+msgstr "محرم"
+
+#: extension.js:74 extension.js:83 src/extension.js:72
+msgid "Safar"
+msgstr "سفر"
+
+#: extension.js:75 extension.js:84 src/extension.js:73
+msgid "Rabi' Al-Awwal"
+msgstr "ربيع الأول"
+
+#: extension.js:76 extension.js:85 src/extension.js:74
+msgid "Rabi' Al-Aakhir"
+msgstr "ربيع الآخر"
+
+#: extension.js:77 extension.js:86 src/extension.js:75
+msgid "Jumada Al-Uola"
+msgstr "جمادى الأول"
+
+#: extension.js:78 extension.js:87 src/extension.js:76
+msgid "Jumada Al-Aakhirah"
+msgstr "جمادى الآخرة"
+
+#: extension.js:79 extension.js:88 src/extension.js:77
+msgid "Rajab"
+msgstr "رجب"
+
+#: extension.js:80 extension.js:89 src/extension.js:78
+msgid "Sha'ban"
+msgstr "شعبان"
+
+#: extension.js:81 extension.js:90 src/extension.js:79
+msgid "Ramadan"
+msgstr "رمضان"
+
+#: extension.js:82 extension.js:91 src/extension.js:80
+msgid "Shawwal"
+msgstr "شوال"
+
+#: extension.js:83 extension.js:92 src/extension.js:81
+msgid "Thu Al-Qa'dah"
+msgstr "ذو القعدة"
+
+#: extension.js:84 extension.js:93 src/extension.js:82
+msgid "Thu Al-Hijjah"
+msgstr "ذو الحجة"
+
+#: extension.js:86 extension.js:88 extension.js:90 extension.js:99
+#: src/extension.js:88
+msgid "Al-Fajr"
+msgstr "الفجر"
+
+#: extension.js:87 extension.js:89 extension.js:91 extension.js:100
+#: src/extension.js:89
+msgid "Al-Shurooq"
+msgstr "الشروق"
+
+#: extension.js:88 extension.js:90 extension.js:92 extension.js:101
+#: src/extension.js:90
+msgid "Jummah"
+msgstr "الجمعة"
+
+#: extension.js:88 extension.js:90 extension.js:92 extension.js:101
+#: src/extension.js:90
+msgid "Al-Thuhr"
+msgstr "الظهر"
+
+#: extension.js:89 extension.js:91 extension.js:93 extension.js:102
+#: src/extension.js:91
+msgid "Al-Asr"
+msgstr "العصر"
+
+#: extension.js:90 extension.js:92 extension.js:94 extension.js:103
+#: src/extension.js:92
+msgid "Al-Maghrib"
+msgstr "المغرب"
+
+#: extension.js:91 extension.js:93 extension.js:95 extension.js:104
+#: src/extension.js:93
+msgid "Al-Isha'"
+msgstr "العشاء"
+
+#: extension.js:92 extension.js:94 extension.js:96 extension.js:105
+#: src/extension.js:94
+msgid "Muntasaf Al-Layl"
+msgstr "منتصف الليل"
+
+#: extension.js:112 PrayTimes.js:4 extension.js:114 PrayTimes.js:8
+#: extension.js:123 src/extension.js:112 src/PrayTimes.js:10
+msgid "Muslim World League"
+msgstr "رابطة العالم الإسلامي"
+
+#: extension.js:113 PrayTimes.js:8 extension.js:115 PrayTimes.js:12
+#: extension.js:124 src/extension.js:113 src/PrayTimes.js:14
+msgid "Umm Al-Qura University, Makkah"
+msgstr "جامعة أم القرى، مكة المكرمة"
+
+#: extension.js:114 extension.js:116 extension.js:125 src/extension.js:114
+msgid "Egyptian General Authority of Survey, Egypt"
+msgstr "الهيئة المصرية العامة للمساحة، مصر"
+
+#: extension.js:115 PrayTimes.js:16 extension.js:117 PrayTimes.js:20
+#: extension.js:126 src/extension.js:115 src/PrayTimes.js:22
+msgid "University of Islamic Sciences, Karachi"
+msgstr "معهد العالمية للدراسات الإسلامية، باكستان"
+
+#: extension.js:621 extension.js:632 src/extension.js:612
+#, javascript-format
+msgid "One minute remaining until %s prayer."
+msgid_plural "%d minutes remaining until %s prayer."
+msgstr[0] "حان وقت صلاة %s"
+msgstr[1] "باق دقيقة واحدة (%d) حتى صلاة %s"
+msgstr[2] "باق دقيقتان (%d) حتى صلاة %s"
+msgstr[3] "باق %d دقائق حتى صلاة %s"
+msgstr[4] "باق %d دقيقة حتى صلاة %s"
+msgstr[5] "باق %d دقيقة حتى صلاة %s"
+
+#: extension.js:625 extension.js:636 extension.js:648 src/extension.js:616
+#: src/extension.js:628
+#, javascript-format
+msgid "Prayer time: %s"
+msgstr "موعد الأذان: %s "
+
+#: extension.js:647 extension.js:664 src/extension.js:627 src/extension.js:644
+#, javascript-format
+msgid "It’s time for %s prayer."
+msgstr "حان وقت صلاة %s"
+
+#: extension.js:671 src/extension.js:651
+#, javascript-format
+msgctxt "Extention indecator"
+msgid "%s -%s"
+msgstr "%s بعد %s"
+
+#: extension.js:701 src/extension.js:681
+#, javascript-format
+msgctxt "format Hijri Date"
+msgid "%s, %s %s %s"
+msgstr "%s، %s %s %s"
+
+#: PrayTimes.js:12 PrayTimes.js:16 src/PrayTimes.js:18
+msgid "Egyptian General Authority of Survey"
+msgstr "الهيئة المصرية العامة للمساحة"
+
+#: PrayTimes.js:24 PrayTimes.js:28 src/PrayTimes.js:30
+msgid "Imsak"
+msgstr "إمساك الصيام"
+
+#: PrayTimes.js:25 PrayTimes.js:29 src/PrayTimes.js:31
+msgid "Fajr"
+msgstr "الفجر"
+
+#: PrayTimes.js:26 PrayTimes.js:30 src/PrayTimes.js:32
+msgid "Sunrise"
+msgstr "الشروق"
+
+#: PrayTimes.js:27 PrayTimes.js:31 src/PrayTimes.js:33
+msgid "Dhuhr"
+msgstr "الظهر"
+
+#: PrayTimes.js:28 PrayTimes.js:32 src/PrayTimes.js:34
+msgid "Asr"
+msgstr "العصر"
+
+#: PrayTimes.js:29 PrayTimes.js:33 src/PrayTimes.js:35
+msgid "Sunset"
+msgstr "المغرب"
+
+#: PrayTimes.js:30 PrayTimes.js:34 src/PrayTimes.js:36
+msgid "Maghrib"
+msgstr "المغرب"
+
+#: PrayTimes.js:31 PrayTimes.js:35 src/PrayTimes.js:37
+msgid "Isha"
+msgstr "العشاء"
+
+#: PrayTimes.js:32 PrayTimes.js:36 src/PrayTimes.js:38
+msgid "Midnight"
+msgstr "التهجد"
+
+#: prefs.js:36 prefs.js:37 prefs.js:40 prefs.js:42 src/prefs.js:36
+msgid "Automatic location"
+msgstr "تحديد الموقع تلقائيا"
+
+#: prefs.js:39 prefs.js:40 prefs.js:43 prefs.js:45 src/prefs.js:39
+msgid "AM/PM time format"
+msgstr "نوع التوقيت ص/م"
+
+#: prefs.js:42 prefs.js:43 prefs.js:46 prefs.js:48 src/prefs.js:42
+msgid "Notify me when it's athan time"
+msgstr "نبهني عند حلول وقت الأذان"
+
+#: prefs.js:46 prefs.js:47 prefs.js:50 prefs.js:52 src/prefs.js:46
+msgid "Latitude"
+msgstr "خط العرض"
+
+#: prefs.js:55 prefs.js:56 prefs.js:59 prefs.js:61 src/prefs.js:55
+msgid "Longitude"
+msgstr "خط الطول"
+
+#: prefs.js:64 prefs.js:65 prefs.js:68 prefs.js:70 src/prefs.js:64
+msgid "Hijri date adjustment"
+msgstr "تدقيق التاريخ الهجري"
+
+#: prefs.js:73 prefs.js:74 prefs.js:77 prefs.js:79 src/prefs.js:73
+msgid "Calculation method"
+msgstr "طريقة حساب وقت الصلاة"
+
+#: prefs.js:77 prefs.js:78 prefs.js:81 prefs.js:83 src/prefs.js:77
+msgid "Timezone"
+msgstr "المنطقة الزمنية"
+
+#: prefs.js:81 prefs.js:82 prefs.js:85 prefs.js:87 src/prefs.js:81
+msgid "Panel position"
+msgstr "مكان عرض المؤقت"
+
+#: prefs.js:85 prefs.js:86 prefs.js:89 prefs.js:91 src/prefs.js:85
+msgid "Show times"
+msgstr "اعرض التوقيتات"
+
+#: prefs.js:89 prefs.js:90 prefs.js:93 prefs.js:95 src/prefs.js:89
+msgid "Notify me before athan"
+msgstr "نبهني قبل الأذان"
+
+#: prefs.js:96 prefs.js:103 prefs.js:106 prefs.js:108 src/prefs.js:96
+msgid "Calculation"
+msgstr "طريقة الحساب"
+
+#: prefs.js:102 prefs.js:109 prefs.js:112 prefs.js:114 src/prefs.js:102
+msgid "Location"
+msgstr "الموقع الجغرافي"
+
+#: prefs.js:107 prefs.js:114 prefs.js:117 prefs.js:119 src/prefs.js:107
+msgid "Display"
+msgstr "طريقة العرض"
+
+#: prefs.js:113 prefs.js:120 prefs.js:123 prefs.js:125 src/prefs.js:113
+msgid "Notifications"
+msgstr "التنبيهات"
+
+#: prefs.js:212 prefs.js:226 prefs.js:229 prefs.js:238 src/prefs.js:206
+msgid "Auto"
+msgstr "تلقائي"
+
+#: prefs.js:213 prefs.js:227 prefs.js:230 prefs.js:239 src/prefs.js:207
+msgid "GMT -12:00"
+msgstr "GMT -12:00"
+
+#: prefs.js:214 prefs.js:228 prefs.js:231 prefs.js:240 src/prefs.js:208
+msgid "GMT -11:00"
+msgstr "GMT -11:00"
+
+#: prefs.js:215 prefs.js:229 prefs.js:232 prefs.js:241 src/prefs.js:209
+msgid "GMT -10:00"
+msgstr "GMT -10:00"
+
+#: prefs.js:216 prefs.js:230 prefs.js:233 prefs.js:242 src/prefs.js:210
+msgid "GMT -09:00"
+msgstr "GMT -09:00"
+
+#: prefs.js:217 prefs.js:231 prefs.js:234 prefs.js:243 src/prefs.js:211
+msgid "GMT -08:00"
+msgstr "GMT -08:00"
+
+#: prefs.js:218 prefs.js:232 prefs.js:235 prefs.js:244 src/prefs.js:212
+msgid "GMT -07:00"
+msgstr "GMT -07:00"
+
+#: prefs.js:219 prefs.js:233 prefs.js:236 prefs.js:245 src/prefs.js:213
+msgid "GMT -06:00"
+msgstr "GMT -06:00"
+
+#: prefs.js:220 prefs.js:234 prefs.js:237 prefs.js:246 src/prefs.js:214
+msgid "GMT -05:00"
+msgstr "GMT -05:00"
+
+#: prefs.js:221 prefs.js:235 prefs.js:238 prefs.js:247 src/prefs.js:215
+msgid "GMT -04:00"
+msgstr "GMT -04:00"
+
+#: prefs.js:222 prefs.js:236 prefs.js:239 prefs.js:248 src/prefs.js:216
+msgid "GMT -03:00"
+msgstr "GMT -03:00"
+
+#: prefs.js:223 prefs.js:237 prefs.js:240 prefs.js:249 src/prefs.js:217
+msgid "GMT -02:00"
+msgstr "GMT -02:00"
+
+#: prefs.js:224 prefs.js:238 prefs.js:241 prefs.js:250 src/prefs.js:218
+msgid "GMT -01:00"
+msgstr "GMT -01:00"
+
+#: prefs.js:225 prefs.js:239 prefs.js:242 prefs.js:251 src/prefs.js:219
+msgid "GMT +00:00"
+msgstr "GMT +00:00"
+
+#: prefs.js:226 prefs.js:240 prefs.js:243 prefs.js:252 src/prefs.js:220
+msgid "GMT +01:00"
+msgstr "GMT +01:00"
+
+#: prefs.js:227 prefs.js:241 prefs.js:244 prefs.js:253 src/prefs.js:221
+msgid "GMT +02:00"
+msgstr "GMT +02:00"
+
+#: prefs.js:228 prefs.js:242 prefs.js:245 prefs.js:254 src/prefs.js:222
+msgid "GMT +03:00"
+msgstr "GMT +03:00"
+
+#: prefs.js:229 prefs.js:243 prefs.js:246 prefs.js:255 src/prefs.js:223
+msgid "GMT +04:00"
+msgstr "GMT +04:00"
+
+#: prefs.js:230 prefs.js:244 prefs.js:247 prefs.js:256 src/prefs.js:224
+msgid "GMT +05:00"
+msgstr "GMT +05:00"
+
+#: prefs.js:231 prefs.js:245 prefs.js:248 prefs.js:257 src/prefs.js:225
+msgid "GMT +06:00"
+msgstr "GMT +06:00"
+
+#: prefs.js:232 prefs.js:246 prefs.js:249 prefs.js:258 src/prefs.js:226
+msgid "GMT +07:00"
+msgstr "GMT +07:00"
+
+#: prefs.js:233 prefs.js:247 prefs.js:250 prefs.js:259 src/prefs.js:227
+msgid "GMT +08:00"
+msgstr "GMT +08:00"
+
+#: prefs.js:234 prefs.js:248 prefs.js:251 prefs.js:260 src/prefs.js:228
+msgid "GMT +09:00"
+msgstr "GMT +09:00"
+
+#: prefs.js:235 prefs.js:249 prefs.js:252 prefs.js:261 src/prefs.js:229
+msgid "GMT +10:00"
+msgstr "GMT +10:00"
+
+#: prefs.js:236 prefs.js:250 prefs.js:253 prefs.js:262 src/prefs.js:230
+msgid "GMT +11:00"
+msgstr "GMT +11:00"
+
+#: prefs.js:237 prefs.js:251 prefs.js:254 prefs.js:263 src/prefs.js:231
+msgid "GMT +12:00"
+msgstr "GMT +12:00"
+
+#: prefs.js:238 prefs.js:252 prefs.js:255 prefs.js:264 src/prefs.js:232
+msgid "GMT +13:00"
+msgstr "GMT +13:00"
+
+#: prefs.js:239 prefs.js:253 prefs.js:256 prefs.js:265 src/prefs.js:233
+msgid "GMT +14:00"
+msgstr "GMT +14:00"
+
+#: prefs.js:249 prefs.js:263 prefs.js:266 prefs.js:275 src/prefs.js:243
+msgid "Center"
+msgstr "في الوسط"
+
+#: prefs.js:249 prefs.js:263 prefs.js:266 prefs.js:275 src/prefs.js:243
+msgid "Left"
+msgstr "على اليسار"
+
+#: prefs.js:249 prefs.js:263 prefs.js:266 prefs.js:275 src/prefs.js:243
+msgid "Right"
+msgstr "على اليمين"
+
+#: prefs.js:258 prefs.js:272 prefs.js:275 prefs.js:284 src/prefs.js:252
+msgid "Primary prayers only"
+msgstr "الصلوات المفروضة فقط"
+
+#: prefs.js:258 prefs.js:272 prefs.js:275 prefs.js:284 src/prefs.js:252
+msgid "All times"
+msgstr "كل الأوقات"
+
+#: prefs.js:267 prefs.js:281 prefs.js:284 prefs.js:293 src/prefs.js:261
+msgid "Off"
+msgstr "مغلق"
+
+#: prefs.js:267 prefs.js:281 prefs.js:284 prefs.js:293 src/prefs.js:261
+msgid "5 min"
+msgstr "5 دقائق"
+
+#: prefs.js:267 prefs.js:281 prefs.js:284 prefs.js:293 src/prefs.js:261
+msgid "10 min"
+msgstr "10 دقائق"
+
+#: prefs.js:267 prefs.js:281 prefs.js:284 prefs.js:293 src/prefs.js:261
+msgid "15 min"
+msgstr "15 دقيقة"
