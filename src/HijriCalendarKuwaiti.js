@@ -1,4 +1,5 @@
-//source : http://www.al-habib.info/islamic-calendar/hijricalendar-kuwaiti.js
+//source : http://www.al-habib.info/islamic-calendar/hijricalendar-kuwaiti.js 
+//         [trimed to only KuwaitiCalendar function]
 
 function gmod(n, m) {
     return ((n % m) + m) % m;
@@ -91,41 +92,4 @@ export function KuwaitiCalendar(adjust) {
     myRes[7] = iy; //islamic year
 
     return myRes;
-}
-
-function writeIslamicDate(adjustment) {
-    let wdNames = new Array(
-        'Ahad',
-        'Ithnin',
-        'Thulatha',
-        'Arbaa',
-        'Khams',
-        'Jumuah',
-        'Sabt'
-    );
-    let iMonthNames = new Array(
-        'Muharram',
-        'Safar',
-        "Rabi'ul Awwal",
-        "Rabi'ul Akhir",
-        'Jumadal Ula',
-        'Jumadal Akhira',
-        'Rajab',
-        "Sha'ban",
-        'Ramadan',
-        'Shawwal',
-        "Dhul Qa'ada",
-        'Dhul Hijja'
-    );
-    let iDate = KuwaitiCalendar(adjustment);
-    let outputIslamicDate =
-        wdNames[iDate[4]] +
-        ', ' +
-        iDate[5] +
-        ' ' +
-        iMonthNames[iDate[6]] +
-        ' ' +
-        iDate[7] +
-        ' AH';
-    return outputIslamicDate;
 }

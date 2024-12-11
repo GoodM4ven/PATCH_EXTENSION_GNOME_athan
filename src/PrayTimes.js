@@ -1,19 +1,25 @@
+
+// Dummy function nessesary for translation with xgettext tool.
+function _(str) {
+    return str;
+}
+
 export function getMethods() {
     return {
         MWL: {
-            name: 'Muslim World League',
+            name: _('Muslim World League'),
             params: { fajr: 18, isha: 17 },
         },
         Makkah: {
-            name: 'Umm Al-Qura University, Makkah',
+            name: _('Umm Al-Qura University, Makkah'),
             params: { fajr: 18.5, isha: '90 min' },
         },
         Egypt: {
-	    name: 'Egyptian General Authority of Survey',
-	    params: { fajr: 19.5, isha: 17.5 },
+            name: _('Egyptian General Authority of Survey'),
+            params: { fajr: 19.5, isha: 17.5 },
         },
         Karachi: {
-            name: 'University of Islamic Sciences, Karachi',
+            name: _('University of Islamic Sciences, Karachi'),
             params: { fajr: 18, isha: 18 },
         },
     };
@@ -21,15 +27,15 @@ export function getMethods() {
 
 export function PrayTimes(method) {
     var timeNames = {
-            imsak: 'Imsak',
-            fajr: 'Fajr',
-            sunrise: 'Sunrise',
-            dhuhr: 'Dhuhr',
-            asr: 'Asr',
-            sunset: 'Sunset',
-            maghrib: 'Maghrib',
-            isha: 'Isha',
-            midnight: 'Midnight',
+            imsak: _('Imsak'),
+            fajr: _('Fajr'),
+            sunrise: _('Sunrise'),
+            dhuhr: _('Dhuhr'),
+            asr: _('Asr'),
+            sunset: _('Sunset'),
+            maghrib: _('Maghrib'),
+            isha: _('Isha'),
+            midnight: _('Midnight'),
         },
         methods = getMethods(),
         defaultParams = {
@@ -65,6 +71,7 @@ export function PrayTimes(method) {
     let params = methods[calcMethod].params;
     for (let id in params) setting[id] = params[id];
 
+    // the keys of the offset object are the same as the string values of the timeNames object
     for (let i in timeNames) offset[i] = 0;
 
     return {

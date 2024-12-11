@@ -192,6 +192,10 @@ class Settings {
         let options = PrayTimes.getMethods();
         let list = new Gtk.StringList();
         for (let value of Object.values(options)) {
+            // this is done to work around the fact that gettext isn't 
+            // available outside extension.js and prefs.js. So we gettext
+            // them with a dummy '_' function to be detected by xgettext
+            // text extractor tool. 
             list.append(_(value.name));
         }
         return list;
