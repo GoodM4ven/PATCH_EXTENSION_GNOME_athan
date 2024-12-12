@@ -1,0 +1,434 @@
+# AthanTimes extension for GNOME Shell
+# Abdo Eid <abdoeid.eg@ieee.org>, 2024.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 15\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-12 00:37+0200\n"
+"Last-Translator: Abdo Eid <abdoeid.eg@ieee.org>\n"
+"Language-Team: Arabic <LL@li.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural= n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: src/extension.js:24
+msgid "Azan"
+msgstr "المؤذن"
+
+#: src/extension.js:49 src/extension.js:124 src/extension.js:150
+msgid "..."
+msgstr "***"
+
+#: src/extension.js:57
+msgid "%A %B %e, %Y"
+msgstr "%A %B %e، %Y"
+
+#: src/extension.js:62
+msgid "Al-Ahad"
+msgstr "الأحد"
+
+#: src/extension.js:63
+msgid "Al-Ithnain"
+msgstr "الإثنين"
+
+#: src/extension.js:64
+msgid "Al-Thulatha'"
+msgstr "الثلاثاء"
+
+#: src/extension.js:65
+msgid "Al-Arbi'a'"
+msgstr "الأربعاء"
+
+#: src/extension.js:66
+msgid "Al-Khamees"
+msgstr "الخميس"
+
+#: src/extension.js:67
+msgid "Al-Jumu'ah"
+msgstr "الجمعة"
+
+#: src/extension.js:68
+msgid "Al-Ssabt"
+msgstr "السبت"
+
+#: src/extension.js:71
+msgid "Muharram"
+msgstr "محرم"
+
+#: src/extension.js:72
+msgid "Safar"
+msgstr "صفر"
+
+#: src/extension.js:73
+msgid "Rabi' Al-Awwal"
+msgstr "ربيع الأول"
+
+#: src/extension.js:74
+msgid "Rabi' Al-Aakhir"
+msgstr "ربيع الآخر"
+
+#: src/extension.js:75
+msgid "Jumada Al-Uola"
+msgstr "جمادى الأولى"
+
+#: src/extension.js:76
+msgid "Jumada Al-Aakhirah"
+msgstr "جمادى الآخرة"
+
+#: src/extension.js:77
+msgid "Rajab"
+msgstr "رجب"
+
+#: src/extension.js:78
+msgid "Sha'ban"
+msgstr "شعبان"
+
+#: src/extension.js:79
+msgid "Ramadan"
+msgstr "رمضان"
+
+#: src/extension.js:80
+msgid "Shawwal"
+msgstr "شوال"
+
+#: src/extension.js:81
+msgid "Thu Al-Qa'dah"
+msgstr "ذو القعدة"
+
+#: src/extension.js:82
+msgid "Thu Al-Hijjah"
+msgstr "ذو الحجة"
+
+#: src/extension.js:88
+msgid "Al-Fajr"
+msgstr "الفجر"
+
+#: src/extension.js:89
+msgid "Al-Shurooq"
+msgstr "الشروق"
+
+#: src/extension.js:90
+msgid "Jummah"
+msgstr "الجمعة"
+
+#: src/extension.js:90
+msgid "Al-Thuhr"
+msgstr "الظهر"
+
+#: src/extension.js:91
+msgid "Al-Asr"
+msgstr "العصر"
+
+#: src/extension.js:92
+msgid "Al-Maghrib"
+msgstr "المغرب"
+
+#: src/extension.js:93
+msgid "Al-Isha'"
+msgstr "العشاء"
+
+#: src/extension.js:94
+msgid "Muntasaf Al-Layl"
+msgstr "منتصف الليل"
+
+#: src/extension.js:112 src/PrayTimes.js:10
+msgid "Muslim World League"
+msgstr "رابطة العالم الإسلامي"
+
+#: src/extension.js:113 src/PrayTimes.js:14
+msgid "Umm Al-Qura University, Makkah"
+msgstr "جامعة أم القرى، مكة المكرمة"
+
+#: src/extension.js:114
+msgid "Egyptian General Authority of Survey, Egypt"
+msgstr "الهيئة المصرية العامة للمساحة، مصر"
+
+#: src/extension.js:115 src/PrayTimes.js:22
+msgid "University of Islamic Sciences, Karachi"
+msgstr "معهد العالمية للدراسات الإسلامية، كاراتشي"
+
+#: src/extension.js:612
+#, javascript-format
+msgid "One minute remaining until %s prayer."
+msgid_plural "%d minutes remaining until %s prayer."
+msgstr[0] "حان وقت صلاة %s"
+msgstr[1] "بقيت دقيقة واحدة (%d) حتى صلاة %s"
+msgstr[2] "بقيت دقيقتان (%d) حتى صلاة %s"
+msgstr[3] "بقي %d دقائق حتى صلاة %s"
+msgstr[4] "بقي %d دقيقة حتى صلاة %s"
+msgstr[5] "بقي %d دقيقة حتى صلاة %s"
+
+#: src/extension.js:616 src/extension.js:628
+#, javascript-format
+msgid "Prayer time: %s"
+msgstr "موعد الأذان: %s "
+
+#: src/extension.js:627 src/extension.js:644
+#, javascript-format
+msgid "It’s time for %s prayer."
+msgstr "حان وقت صلاة %s"
+
+#: src/extension.js:651
+#, javascript-format
+msgctxt "Extention indecator"
+msgid "%s -%s"
+msgstr "%s بعد %s"
+
+#: src/extension.js:681
+#, javascript-format
+msgctxt "format Hijri Date"
+msgid "%s, %s %s %s"
+msgstr "%s، %s %s %s"
+
+#: src/PrayTimes.js:18
+msgid "Egyptian General Authority of Survey"
+msgstr "الهيئة المصرية العامة للمساحة"
+
+#: src/PrayTimes.js:30
+msgid "Imsak"
+msgstr "إمساك الصيام"
+
+#: src/PrayTimes.js:31
+msgid "Fajr"
+msgstr "الفجر"
+
+#: src/PrayTimes.js:32
+msgid "Sunrise"
+msgstr "الشروق"
+
+#: src/PrayTimes.js:33
+msgid "Dhuhr"
+msgstr "الظهر"
+
+#: src/PrayTimes.js:34
+msgid "Asr"
+msgstr "العصر"
+
+#: src/PrayTimes.js:35
+msgid "Sunset"
+msgstr "الغروب"
+
+#: src/PrayTimes.js:36
+msgid "Maghrib"
+msgstr "المغرب"
+
+#: src/PrayTimes.js:37
+msgid "Isha"
+msgstr "العشاء"
+
+#: src/PrayTimes.js:38
+msgid "Midnight"
+msgstr "منتصف الليل"
+
+#: src/prefs.js:36
+msgid "Automatic location"
+msgstr "تحديد الموقع تلقائيا"
+
+#: src/prefs.js:39
+msgid "AM/PM time format"
+msgstr "نوع التوقيت ص/م"
+
+#: src/prefs.js:42
+msgid "Notify me when it's athan time"
+msgstr "نبهني عند حلول وقت الأذان"
+
+#: src/prefs.js:46
+msgid "Latitude"
+msgstr "خط العرض"
+
+#: src/prefs.js:55
+msgid "Longitude"
+msgstr "خط الطول"
+
+#: src/prefs.js:64
+msgid "Hijri date adjustment"
+msgstr "تصحيح التاريخ الهجري"
+
+#: src/prefs.js:73
+msgid "Calculation method"
+msgstr "طريقة حساب وقت الصلاة"
+
+#: src/prefs.js:77
+msgid "Timezone"
+msgstr "المنطقة الزمنية"
+
+#: src/prefs.js:81
+msgid "Panel position"
+msgstr "مكان عرض المؤقت"
+
+#: src/prefs.js:85
+msgid "Show times"
+msgstr "اعرض التوقيتات"
+
+#: src/prefs.js:89
+msgid "Notify me before athan"
+msgstr "نبهني قبل الأذان"
+
+#: src/prefs.js:96
+msgid "Calculation"
+msgstr "طريقة الحساب"
+
+#: src/prefs.js:102
+msgid "Location"
+msgstr "الموقع الجغرافي"
+
+#: src/prefs.js:107
+msgid "Display"
+msgstr "طريقة العرض"
+
+#: src/prefs.js:113
+msgid "Notifications"
+msgstr "التنبيهات"
+
+#: src/prefs.js:206
+msgid "Auto"
+msgstr "تلقائي"
+
+#: src/prefs.js:207
+msgid "GMT -12:00"
+msgstr "GMT -12:00"
+
+#: src/prefs.js:208
+msgid "GMT -11:00"
+msgstr "GMT -11:00"
+
+#: src/prefs.js:209
+msgid "GMT -10:00"
+msgstr "GMT -10:00"
+
+#: src/prefs.js:210
+msgid "GMT -09:00"
+msgstr "GMT -09:00"
+
+#: src/prefs.js:211
+msgid "GMT -08:00"
+msgstr "GMT -08:00"
+
+#: src/prefs.js:212
+msgid "GMT -07:00"
+msgstr "GMT -07:00"
+
+#: src/prefs.js:213
+msgid "GMT -06:00"
+msgstr "GMT -06:00"
+
+#: src/prefs.js:214
+msgid "GMT -05:00"
+msgstr "GMT -05:00"
+
+#: src/prefs.js:215
+msgid "GMT -04:00"
+msgstr "GMT -04:00"
+
+#: src/prefs.js:216
+msgid "GMT -03:00"
+msgstr "GMT -03:00"
+
+#: src/prefs.js:217
+msgid "GMT -02:00"
+msgstr "GMT -02:00"
+
+#: src/prefs.js:218
+msgid "GMT -01:00"
+msgstr "GMT -01:00"
+
+#: src/prefs.js:219
+msgid "GMT +00:00"
+msgstr "GMT +00:00"
+
+#: src/prefs.js:220
+msgid "GMT +01:00"
+msgstr "GMT +01:00"
+
+#: src/prefs.js:221
+msgid "GMT +02:00"
+msgstr "GMT +02:00"
+
+#: src/prefs.js:222
+msgid "GMT +03:00"
+msgstr "GMT +03:00"
+
+#: src/prefs.js:223
+msgid "GMT +04:00"
+msgstr "GMT +04:00"
+
+#: src/prefs.js:224
+msgid "GMT +05:00"
+msgstr "GMT +05:00"
+
+#: src/prefs.js:225
+msgid "GMT +06:00"
+msgstr "GMT +06:00"
+
+#: src/prefs.js:226
+msgid "GMT +07:00"
+msgstr "GMT +07:00"
+
+#: src/prefs.js:227
+msgid "GMT +08:00"
+msgstr "GMT +08:00"
+
+#: src/prefs.js:228
+msgid "GMT +09:00"
+msgstr "GMT +09:00"
+
+#: src/prefs.js:229
+msgid "GMT +10:00"
+msgstr "GMT +10:00"
+
+#: src/prefs.js:230
+msgid "GMT +11:00"
+msgstr "GMT +11:00"
+
+#: src/prefs.js:231
+msgid "GMT +12:00"
+msgstr "GMT +12:00"
+
+#: src/prefs.js:232
+msgid "GMT +13:00"
+msgstr "GMT +13:00"
+
+#: src/prefs.js:233
+msgid "GMT +14:00"
+msgstr "GMT +14:00"
+
+#: src/prefs.js:243
+msgid "Center"
+msgstr "في الوسط"
+
+#: src/prefs.js:243
+msgid "Left"
+msgstr "على اليسار"
+
+#: src/prefs.js:243
+msgid "Right"
+msgstr "على اليمين"
+
+#: src/prefs.js:252
+msgid "Primary prayers only"
+msgstr "الصلوات المفروضة فقط"
+
+#: src/prefs.js:252
+msgid "All times"
+msgstr "كل الأوقات"
+
+#: src/prefs.js:261
+msgid "Off"
+msgstr "مغلق"
+
+#: src/prefs.js:261
+msgid "5 min"
+msgstr "5 دقائق"
+
+#: src/prefs.js:261
+msgid "10 min"
+msgstr "10 دقائق"
+
+#: src/prefs.js:261
+msgid "15 min"
+msgstr "15 دقيقة"

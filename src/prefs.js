@@ -9,7 +9,7 @@ import * as PrayTimes from './PrayTimes.js';
 
 export default class ClipboardIndicatorPreferences extends ExtensionPreferences {
     async fillPreferencesWindow(window) {
-        window._settings = this.getSettings();
+        window._settings = this.getSettings(); // schema object
         const settingsUI = new Settings(window._settings);
         const page = new Adw.PreferencesPage();
         page.add(settingsUI.locationGroup);
@@ -141,7 +141,6 @@ class Settings {
             'active',
             Gio.SettingsBindFlags.DEFAULT
         );
-
         this.schema.bind(
             'latitude',
             this.field_latitude,
@@ -160,7 +159,6 @@ class Settings {
             'value',
             Gio.SettingsBindFlags.DEFAULT
         );
-
         this.schema.bind(
             'calculation-method',
             this.field_calc_method_mode,
@@ -185,7 +183,6 @@ class Settings {
             'selected',
             Gio.SettingsBindFlags.DEFAULT
         );
-
         this.field_auto_location_toggle.connect('notify::active', () => {
             this.#updateLocationFields();
         });
@@ -195,7 +192,11 @@ class Settings {
         let options = PrayTimes.getMethods();
         let list = new Gtk.StringList();
         for (let value of Object.values(options)) {
-            list.append(value.name);
+            // this is done to work around the fact that gettext isn't 
+            // available outside extension.js and prefs.js. So we gettext
+            // them with a dummy '_' function to be detected by xgettext
+            // text extractor tool. 
+            list.append(_(value.name));
         }
         return list;
     }

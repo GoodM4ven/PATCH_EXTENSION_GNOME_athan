@@ -7,6 +7,8 @@ import Clutter from 'gi://Clutter';
 import {
     Extension,
     gettext as _,
+    ngettext, 
+    pgettext,
 } from 'resource:///org/gnome/shell/extensions/extension.js';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -57,39 +59,39 @@ const Azan = GObject.registerClass(
             this._prayTimes = new PrayTimes.PrayTimes('MWL');
 
             this._dayNames = [
-                'Al-Ahad',
-                'Al-Ithnain',
-                "Al-Thulatha'",
-                "Al-Arbi'a'",
-                'Al-Khamees',
-                "Al-Jumu'ah",
-                'Al-Ssabt',
+                _('Al-Ahad'),
+                _('Al-Ithnain'),
+                _("Al-Thulatha'"),
+                _("Al-Arbi'a'"),
+                _('Al-Khamees'),
+                _("Al-Jumu'ah"),
+                _('Al-Ssabt'),
             ];
             this._monthNames = [
-                'Muharram',
-                'Safar',
-                "Rabi' Al-Awwal",
-                "Rabi' Al-Aakhir",
-                'Jumada Al-Uola',
-                'Jumada Al-Aakhirah',
-                'Rajab',
-                "Sha'ban",
-                'Ramadan',
-                'Shawwal',
-                "Thu Al-Qa'dah",
-                'Thu Al-Hijjah',
+                _('Muharram'),
+                _('Safar'),
+                _("Rabi' Al-Awwal"),
+                _("Rabi' Al-Aakhir"),
+                _('Jumada Al-Uola'),
+                _('Jumada Al-Aakhirah'),
+                _('Rajab'),
+                _("Sha'ban"),
+                _('Ramadan'),
+                _('Shawwal'),
+                _("Thu Al-Qa'dah"),
+                _('Thu Al-Hijjah'),
             ];
 
             let today = new Date();
             let dayOfWeek = today.getDay();
             this._timeNames = {
-                fajr: 'Al-Fajr',
-                sunrise: 'Al-Shurooq',
-                dhuhr: dayOfWeek === 5 ? 'Jummah' : 'Al-Thuhr',
-                asr: 'Al-Asr',
-                maghrib: 'Al-Maghrib',
-                isha: "Al-Isha'",
-                midnight: 'Muntasaf Al-Layl',
+                fajr: _('Al-Fajr'),
+                sunrise: _('Al-Shurooq'),
+                dhuhr: dayOfWeek === 5 ? _('Jummah') : _('Al-Thuhr'),
+                asr: _('Al-Asr'),
+                maghrib: _('Al-Maghrib'),
+                isha: _("Al-Isha'"),
+                midnight: _('Muntasaf Al-Layl'),
             };
 
             // Define primary prayers
@@ -107,10 +109,10 @@ const Azan = GObject.registerClass(
 
             this._calcMethodsArr = ['MWL', 'Makkah', 'Egypt', 'Karachi'];
             this._calcMethodNames = [
-                'Muslim World League',
-                'Umm Al-Qura University, Makkah',
-                'Egyptian General Authority of Survey, Egypt',
-                'University of Islamic Sciences, Karachi',
+                _('Muslim World League'),
+                _('Umm Al-Qura University, Makkah'),
+                _('Egyptian General Authority of Survey, Egypt'),
+                _('University of Islamic Sciences, Karachi'),
             ];
             this._timezoneArr = Array.from({ length: 27 }, (_, index) =>
                 (index - 12).toString()
@@ -605,10 +607,13 @@ const Azan = GObject.registerClass(
                 !this._beforeAzanNotified
             ) {
                 Main.notify(
-                    _(
-                        `${this._opt_notify_before_azan} minutes remaining until ${this._timeNames[nearestPrayerId]} prayer.`
-                    ),
-                    _('Prayer time: ' + timesStr[nearestPrayerId])
+                    // Arabic prular form
+                    ngettext(
+                        'One minute remaining until %s prayer.',
+                        '%d minutes remaining until %s prayer.',
+                        this._opt_notify_before_azan
+                    ).format(this._opt_notify_before_azan, this._timeNames[nearestPrayerId]),
+                    _('Prayer time: %s').format(timesStr[nearestPrayerId])
                 );
                 this._beforeAzanNotified = true;
             }
@@ -619,12 +624,8 @@ const Azan = GObject.registerClass(
                 this._opt_notify_for_azan
             ) {
                 Main.notify(
-                    _(
-                        "It's time for " +
-                            this._timeNames[nearestPrayerId] +
-                            ' prayer.'
-                    ),
-                    _('Prayer time: ' + timesStr[nearestPrayerId])
+                    _('It’s time for %s prayer.').format(this._timeNames[nearestPrayerId]),
+                    _('Prayer time: %s').format(timesStr[nearestPrayerId])
                 );
                 this._azanNotified = true;
             }
@@ -640,16 +641,17 @@ const Azan = GObject.registerClass(
             // Show "It's time for <prayer>" when it's time for prayer
             if (isTimeForPraying) {
                 this.indicatorText.set_text(
-                    _("It's time for " + this._timeNames[nearestPrayerId])
+                    _('It’s time for %s prayer.').format(this._timeNames[nearestPrayerId])
                 );
                 return;
             }
 
             // Default: Show time until the next prayer
             this.indicatorText.set_text(
-                this._timeNames[nearestPrayerId] +
-                    ' -' +
+                pgettext('Extention indecator',"%s -%s").format(
+                    this._timeNames[nearestPrayerId],
                     this._formatRemainingTimeFromMinutes(diffMinutes)
+                )
             );
         }
 
@@ -669,19 +671,17 @@ const Azan = GObject.registerClass(
             let hours = Math.floor(Math.abs(diffMinutes) / 60);
             let minutes = Math.abs(diffMinutes) % 60;
 
-            return `${hours.toString().padStart(2, '0')}:${minutes
-                .toString()
-                .padStart(2, '0')}`;
+            return '%s:%s'.format(
+                hours.toString().padStart(2, '0'), 
+                minutes.toString().padStart(2, '0')
+            );
         }
 
         _formatHijriDate(hijriDate) {
-            return (
-                this._dayNames[hijriDate[4]] +
-                ', ' +
-                hijriDate[5] +
-                ' ' +
-                this._monthNames[hijriDate[6]] +
-                ' ' +
+            return pgettext('format Hijri Date', '%s, %s %s %s').format(
+                this._dayNames[hijriDate[4]],
+                hijriDate[5],
+                this._monthNames[hijriDate[6]],
                 hijriDate[7]
             );
         }

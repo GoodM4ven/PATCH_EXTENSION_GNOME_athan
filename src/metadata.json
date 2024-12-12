@@ -2,8 +2,9 @@
     "uuid": "athan@goodm4ven",
     "name": "AthanTimes",
     "url": "https://github.com/goodm4ven/athan-gnome-shell-extension",
-    "description": "A modified version of the original \"azan\" notifier, prayer reminder and Hijri date displayer extension by [fahrinh].\n\nKeywords: Islam, Islamic, notification, time, calendar, prayers.",
+    "description": "A prayer reminder and Hijri date displayer extension. [Originally by fahrinh @ github]\n\nKeywords: Islam, Islamic, notification, time, calendar, prayers.",
     "settings-schema": "org.gnome.shell.extensions.athan",
     "shell-version": ["47"],
-    "version": 15
+    "version": 16,
+    "gettext-domain": "athan@goodm4ven"
 }
