@@ -34,7 +34,7 @@ msgstr "الأحد"
 
 #: src/extension.js:63
 msgid "Al-Ithnan"
-msgstr "الاثنين"
+msgstr "الإثنين"
 
 #: src/extension.js:64
 msgid "Al-Thulatha'"
@@ -62,7 +62,7 @@ msgstr "محرم"
 
 #: src/extension.js:72
 msgid "Safar"
-msgstr "سفر"
+msgstr "صفر"
 
 #: src/extension.js:73
 msgid "Rabi' Al-Awwal"
@@ -74,7 +74,7 @@ msgstr "ربيع الآخر"
 
 #: src/extension.js:75
 msgid "Jumada Al-Uola"
-msgstr "جمادى الأول"
+msgstr "جمادى الأولى"
 
 #: src/extension.js:76
 msgid "Jumada Al-Aakhirah"
@@ -150,18 +150,18 @@ msgstr "الهيئة المصرية العامة للمساحة، مصر"
 
 #: src/extension.js:115 src/PrayTimes.js:22
 msgid "University of Islamic Sciences, Karachi"
-msgstr "معهد العالمية للدراسات الإسلامية، باكستان"
+msgstr "معهد العالمية للدراسات الإسلامية، كاراتشي"
 
 #: src/extension.js:612
 #, javascript-format
 msgid "One minute remaining until %s prayer."
 msgid_plural "%d minutes remaining until %s prayer."
 msgstr[0] "حان وقت صلاة %s"
-msgstr[1] "باق دقيقة واحدة (%d) حتى صلاة %s"
-msgstr[2] "باق دقيقتان (%d) حتى صلاة %s"
-msgstr[3] "باق %d دقائق حتى صلاة %s"
-msgstr[4] "باق %d دقيقة حتى صلاة %s"
-msgstr[5] "باق %d دقيقة حتى صلاة %s"
+msgstr[1] "بقيت دقيقة واحدة (%d) حتى صلاة %s"
+msgstr[2] "بقيت دقيقتان (%d) حتى صلاة %s"
+msgstr[3] "بقي %d دقائق حتى صلاة %s"
+msgstr[4] "بقي %d دقيقة حتى صلاة %s"
+msgstr[5] "بقي %d دقيقة حتى صلاة %s"
 
 #: src/extension.js:616 src/extension.js:628
 #, javascript-format
@@ -211,7 +211,7 @@ msgstr "العصر"
 
 #: src/PrayTimes.js:35
 msgid "Sunset"
-msgstr "المغرب"
+msgstr "الغروب"
 
 #: src/PrayTimes.js:36
 msgid "Maghrib"
@@ -223,7 +223,7 @@ msgstr "العشاء"
 
 #: src/PrayTimes.js:38
 msgid "Midnight"
-msgstr "التهجد"
+msgstr "منتصف الليل"
 
 #: src/prefs.js:36
 msgid "Automatic location"
@@ -247,7 +247,7 @@ msgstr "خط الطول"
 
 #: src/prefs.js:64
 msgid "Hijri date adjustment"
-msgstr "تدقيق التاريخ الهجري"
+msgstr "تصحيح التاريخ الهجري"
 
 #: src/prefs.js:73
 msgid "Calculation method"
