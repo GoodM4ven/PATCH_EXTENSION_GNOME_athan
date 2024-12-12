@@ -33,7 +33,7 @@ msgid "Al-Ahad"
 msgstr ""
 
 #: src/extension.js:63
-msgid "Al-Ithnan"
+msgid "Al-Ithnain"
 msgstr ""
 
 #: src/extension.js:64
