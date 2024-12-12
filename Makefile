@@ -1,20 +1,15 @@
 #=============================================================================
-UUID=$(shell cat src/metadata.json | python3 -c "import json,sys;obj=json.load(sys.stdin);print(obj['uuid']);")
+NAME=athan
+UUID=$(NAME)@goodm4ven
 SRCDIR=src
 BUILDDIR=build
-FILES=metadata.json *.js stylesheet.css schemas
-MKFILE_PATH := $(lastword $(MAKEFILE_LIST))
-MKFILE_DIR := $(dir $(MKFILE_PATH))
-ABS_MKFILE_PATH := $(abspath $(MKFILE_PATH))
-ABS_MKFILE_DIR := $(abspath $(MKFILE_DIR))
-ABS_BUILDDIR=$(ABS_MKFILE_DIR)/$(BUILDDIR)
 INSTALL_PATH=~/.local/share/gnome-shell/extensions
 #=============================================================================
 default_target: all
 .PHONY: clean all zip install reloadGnome check compile-schemas lint
 
 clean:
-	rm -rf $(BUILDDIR)
+	rm -rf $(BUILDDIR) po/mo
 
 check:
 	@echo "Checking prerequisites..."
@@ -32,22 +27,29 @@ lint: check
 	eslint src/**/*.js
 
 # ? Build the extension
-all: clean compile-schemas
+all: clean compile-schemas pot
 	mkdir -p $(BUILDDIR)/$(UUID)
-	cp -r src/* $(BUILDDIR)/$(UUID)
+	cp -rt $(BUILDDIR)/$(UUID) \
+	src po schemas .github/images
 	@if [ -d $(BUILDDIR)/$(UUID)/schemas ]; then \
 		glib-compile-schemas $(BUILDDIR)/$(UUID)/schemas; \
 	fi
-
-xz: all
-	(cd $(BUILDDIR)/$(UUID); \
-         tar -czvf $(ABS_BUILDDIR)/$(UUID).tar.xz $(FILES:%=%); \
-        );
+	cd $(BUILDDIR)/$(UUID) && \
+	for lang in $$(cat po/mo/LINGUAS); do \
+		mkdir -p locale/$$lang/LC_MESSAGES; \
+		cp po/mo/$$lang.mo locale/$$lang/LC_MESSAGES/$(UUID).mo; \
+	done
+	rm -rf $(BUILDDIR)/$(UUID)/po
+	echo "Build done"
 
 zip: all
-	(cd $(BUILDDIR)/$(UUID); \
-         zip -rq $(ABS_BUILDDIR)/$(UUID).zip $(FILES:%=%); \
-        );
+	cd $(BUILDDIR)/$(UUID) && \
+	gnome-extensions pack -f \
+		--extra-source=./images \
+		--extra-source=./locale \
+		--extra-source=./schemas \
+		--out-dir=../ ./src
+
 
 install: all
 	mkdir -p $(INSTALL_PATH)/$(UUID)
@@ -56,3 +58,18 @@ install: all
 reloadGnome:
 	@dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()' || \
 	{ echo "Failed to reload GNOME Shell. Please restart it manually."; exit 1; }
+
+pot:
+	rm po/LINGUAS
+	for l in $$(ls po/*.po); do	basename $$l .po >> po/LINGUAS; done
+	mkdir -p po/mo
+	cp po/LINGUAS po/mo/LINGUAS
+	cd po && \
+	for lang in $$(cat LINGUAS); do \
+		mv $${lang}.po $${lang}.po.old; \
+		msginit --no-translator --locale=$$lang --input $(UUID).pot -o $${lang}.po.new; \
+		msgmerge -N $${lang}.po.old $${lang}.po.new > $${lang}.po; \
+		rm $${lang}.po.old $${lang}.po.new; \
+		msgfmt -o mo/$${lang}.mo $${lang}.po; \
+	done
+	cd ..
