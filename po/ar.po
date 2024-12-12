@@ -33,7 +33,7 @@ msgid "Al-Ahad"
 msgstr "الأحد"
 
 #: src/extension.js:63
-msgid "Al-Ithnan"
+msgid "Al-Ithnain"
 msgstr "الإثنين"
 
 #: src/extension.js:64
