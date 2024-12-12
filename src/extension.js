@@ -60,7 +60,7 @@ const Azan = GObject.registerClass(
 
             this._dayNames = [
                 _('Al-Ahad'),
-                _('Al-Ithnan'),
+                _('Al-Ithnain'),
                 _("Al-Thulatha'"),
                 _("Al-Arbi'a'"),
                 _('Al-Khamees'),
