@@ -42,6 +42,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 
 ### Important Changes:
 
+- Translated to Arabic systems
 - Minimized and standradized the available settings
 - Dropped the iqama reminder and the "athan since" indicator
 - Arabic naming consistency
@@ -70,6 +71,9 @@ This package is open-sourced software licensed under the [MIT license](LICENSE.m
 - [JustPerfection](https://extensions.gnome.org/accounts/profile/JustPerfection)
 - [GNOME](https://gnome.org/)
 - [Linux](https://kernel.org/)
+
+- [abdoei](https://github.com/abdoei)
+- [technology-maen](https://github.com/technology-maen)
 - All the other contributors for the tree forks!
 - And the generous individuals that we've learned from and been supported by throughout our journey...
 
