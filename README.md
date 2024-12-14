@@ -31,6 +31,7 @@ This is a modified fork off of the original by [fahrinh](https://github.com/fahr
 
 <div align="left">
 
+
 ## Development
 
 Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.org/Boxes/) was a hero!
@@ -54,6 +55,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - // TODO refactor the overhaul
 - // Implement the translation as Locale independent setting option
 
+
 ## Support
 
 Support ongoing package maintenance as well as the development of **other projects** through [sponsorship](https://github.com/sponsors/GoodM4ven) or one-time [donations](https://github.com/sponsors/GoodM4ven?frequency=one-time&sponsor=GoodM4ven) if you prefer.
@@ -66,16 +68,16 @@ This package is open-sourced software licensed under the [MIT license](LICENSE.m
 
 ### Credits
 
+- [Abdo Eid](https://github.com/abdoei)
+- [technology-maen](https://github.com/technology-maen)
+- All the other contributors for the tree forks!
+- And the generous individuals that we've learned from and been supported by throughout our journey...
+
 - [ChatGPT](https://chat.openai.com)
 - [DateHijri](https://datehijri.com/)
 - [JustPerfection](https://extensions.gnome.org/accounts/profile/JustPerfection)
 - [GNOME](https://gnome.org/)
 - [Linux](https://kernel.org/)
-
-- [Abdo Eid](https://github.com/abdoei)
-- [technology-maen](https://github.com/technology-maen)
-- All the other contributors for the tree forks!
-- And the generous individuals that we've learned from and been supported by throughout our journey...
 
 </div>
 

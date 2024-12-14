@@ -11,6 +11,7 @@ import {
     pgettext,
 } from 'resource:///org/gnome/shell/extensions/extension.js';
 
+import { log } from 'resource:///org/gnome/shell/misc/util.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
@@ -377,7 +378,15 @@ const Azan = GObject.registerClass(
         }
 
         _onPermStoreChanged(proxy, sender, params) {
-            let [table, id, deleted, data, perms] = params;
+            let [
+                table,
+                id,
+                // deleted
+                ,
+                // data
+                ,
+                perms
+            ] = params;
 
             if (table != 'gnome' || id != 'geolocation') return;
 
@@ -636,7 +645,7 @@ const Azan = GObject.registerClass(
             isAfterAzan,
             diffMinutes,
             nearestPrayerId,
-            timesStr
+            // timesStr
         ) {
             // Show "It's time for <prayer>" when it's time for prayer
             if (isTimeForPraying) {

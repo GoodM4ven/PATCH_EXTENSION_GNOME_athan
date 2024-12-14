@@ -182,8 +182,7 @@ export function PrayTimes(method) {
                 q + 1.915 * DMath.sin(g) + 0.02 * DMath.sin(2 * g)
             );
 
-            let R =
-                1.00014 - 0.01671 * DMath.cos(g) - 0.00014 * DMath.cos(2 * g);
+            // let R = 1.00014 - 0.01671 * DMath.cos(g) - 0.00014 * DMath.cos(2 * g);
             let e = 23.439 - 0.00000036 * D;
 
             let RA =

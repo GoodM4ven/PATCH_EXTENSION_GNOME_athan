@@ -5,6 +5,6 @@
     "description": "A prayer reminder and Hijri date displayer extension. [Originally by fahrinh @ github]\n\nKeywords: Islam, Islamic, notification, time, calendar, prayers.",
     "settings-schema": "org.gnome.shell.extensions.athan",
     "shell-version": ["47"],
-    "version": 18,
+    "version": 19,
     "gettext-domain": "athan@goodm4ven"
 }
