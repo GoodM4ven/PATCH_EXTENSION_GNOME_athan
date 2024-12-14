@@ -52,7 +52,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 ### Todos
 
 - // TODO refactor the overhaul
-
+- // Implement the translation as Locale independent setting option
 
 ## Support
 
@@ -72,7 +72,7 @@ This package is open-sourced software licensed under the [MIT license](LICENSE.m
 - [GNOME](https://gnome.org/)
 - [Linux](https://kernel.org/)
 
-- [abdoei](https://github.com/abdoei)
+- [Abdo Eid](https://github.com/abdoei)
 - [technology-maen](https://github.com/technology-maen)
 - All the other contributors for the tree forks!
 - And the generous individuals that we've learned from and been supported by throughout our journey...
