@@ -31,7 +31,7 @@ xz: all
 
 zip: all
 	(cd $(BUILDDIR)/$(UUID); \
-         zip -rq $(ABS_BUILDDIR)/$(UUID).zip $(FILES:%=%); \
+         zip -rq $(ABS_BUILDDIR)/$(UUID).zip $(FILES); \
         );
         
 install: all

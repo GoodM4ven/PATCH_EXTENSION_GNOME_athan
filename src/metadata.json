@@ -2,10 +2,8 @@
   "uuid": "athan@goodm4ven",
   "name": "AthanTimes",
   "url": "https://github.com/goodm4ven/athan-gnome-shell-extension",
-  "description": "It's just another fork of the original extension by [fahrinh]; for shell 46.\n\nImportant Changes:\n- Position is hard-coded to 'center' for a status-indicator issue. (check the repo for details)",
+  "description": "A prayer reminder and Hijri date displayer extension. [Originally by fahrinh @ github]\n\nKeywords: Islam, Islamic, notification, time, calendar, prayers.",
   "settings-schema": "org.gnome.shell.extensions.athan",
-  "shell-version": [
-    "46"
-  ],
-  "version": 8
+  "shell-version": ["46"],
+  "version": 9
 }
