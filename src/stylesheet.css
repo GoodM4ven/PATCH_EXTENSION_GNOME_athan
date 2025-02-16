@@ -5,11 +5,22 @@
 	direction: rtl;
 }
 
-.athan-label {
-  color: white;
+@media (prefers-color-scheme: light) {
+  .athan-label {
+    color: #000;
+  }
+  .prefs_s_action:hover {
+    color: #000;
+    border: none;
+  }
 }
 
-.prefs_s_action:hover {
-	color: white;
-	border: none;
+@media (prefers-color-scheme: dark) {
+  .athan-label {
+    color: #fff;
+  }
+  .prefs_s_action:hover {
+    color: #fff;
+    border: none;
+  }
 }
