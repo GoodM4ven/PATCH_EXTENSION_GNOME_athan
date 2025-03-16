@@ -38,8 +38,8 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 
 ### Supported GNOME Versions:
 
-- [46](https://github.com/GoodM4ven/EXTENSION_GNOME_athan/tree/Gnome-v46)
-- 47 ([`main`](https://github.com/GoodM4ven/EXTENSION_GNOME_athan) branch)
+- [46](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v46)
+- 47 ([`main`](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan) branch)
 
 ### Important Changes:
 
