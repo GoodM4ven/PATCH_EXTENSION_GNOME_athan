@@ -4,7 +4,7 @@
 
 <div align="left">
 
-# athan-gnome-shell-extension
+# Athan Gnome-Shell Extension
 
 A GNOME Shell extension for prayer preparation, athan times notification, and Hijri date displaying as well; all in the in your Linux GNOME shell system tray.
 
@@ -38,8 +38,8 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 
 ### Supported GNOME Versions:
 
-- [46](https://github.com/GoodM4ven/athan-gnome-shell-extension/tree/Gnome-v46)
-- 47 ([`main`](https://github.com/GoodM4ven/athan-gnome-shell-extension) branch)
+- [46](https://github.com/GoodM4ven/EXTENSION_GNOME_athan/tree/Gnome-v46)
+- 47 ([`main`](https://github.com/GoodM4ven/EXTENSION_GNOME_athan) branch)
 
 ### Important Changes:
 
