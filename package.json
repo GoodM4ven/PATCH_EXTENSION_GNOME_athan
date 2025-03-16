@@ -27,14 +27,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/goodm4ven/athan-gnome-shell-extension.git"
+        "url": "git+https://github.com/goodm4ven/EXTENSION_GNOME_athan.git"
     },
     "author": "GoodM4ven@proton.me",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/goodm4ven/athan-gnome-shell-extension/issues"
+        "url": "https://github.com/goodm4ven/EXTENSION_GNOME_athan/issues"
     },
-    "homepage": "https://github.com/goodm4ven/athan-gnome-shell-extension#readme",
+    "homepage": "https://github.com/goodm4ven/EXTENSION_GNOME_athan#readme",
     "devDependencies": {
         "@eslint/js": "^9.17.0",
         "eslint": "^9.17.0",
