@@ -56,17 +56,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - // Implement the translation as Locale independent setting option
 
 
-## Support
-
-Support ongoing package maintenance as well as the development of **other projects** through [sponsorship](https://github.com/sponsors/GoodM4ven) or one-time [donations](https://github.com/sponsors/GoodM4ven?frequency=one-time&sponsor=GoodM4ven) if you prefer.
-
-And may Allah accept your strive; aameen.
-
-### License
-
-This package is open-sourced software licensed under the [MIT license](LICENSE.md).
-
-### Credits
+## Credits
 
 - [Abdo Eid](https://github.com/abdoei)
 - [technology-maen](https://github.com/technology-maen)
