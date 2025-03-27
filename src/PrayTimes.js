@@ -1,5 +1,5 @@
 
-// Dummy function nessesary for translation with xgettext tool.
+// ? Dummy function nessesary for translation with xgettext tool.
 function _(str) {
     return str;
 }
@@ -71,7 +71,7 @@ export function PrayTimes(method) {
     let params = methods[calcMethod].params;
     for (let id in params) setting[id] = params[id];
 
-    // the keys of the offset object are the same as the string values of the timeNames object
+    // ? The keys for the offset object are the same as the string values of the timeNames object
     for (let i in timeNames) offset[i] = 0;
 
     return {

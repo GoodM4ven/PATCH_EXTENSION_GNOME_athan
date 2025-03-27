@@ -7,11 +7,10 @@ import Clutter from 'gi://Clutter';
 import {
     Extension,
     gettext as _,
-    ngettext, 
+    ngettext,
     pgettext,
 } from 'resource:///org/gnome/shell/extensions/extension.js';
 
-import { log } from 'resource:///org/gnome/shell/misc/util.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import * as PanelMenu from 'resource:///org/gnome/shell/ui/panelMenu.js';
 import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
@@ -24,6 +23,8 @@ const Azan = GObject.registerClass(
         _init(extension) {
             super._init(0.5, _('Azan'));
 
+            this.logger = extension.getLogger();
+
             this._azanNotified = false;
             this._beforeAzanNotified = false;
             this._lastNotifiedPrayerId = null;
@@ -34,8 +35,8 @@ const Azan = GObject.registerClass(
                 'org.gnome.shell.extensions.athan'
             );
             this._panelPositionArr = ['center', 'left', 'right'];
-            this._notifyBeforeAzanMinutes = [0, 5, 10, 15]; // Map indices to actual minutes
-            this._conciseListLevels = [0, 1]; // 0: Primary prayers only, 1: All times
+            this._notifyBeforeAzanMinutes = [0, 5, 10, 15]; // ? Mapping to minutes
+            this._conciseListLevels = [0, 1]; // ? 0: Primary prayers only, 1: All times
             this._bindSettings();
             this._loadSettings();
 
@@ -95,7 +96,6 @@ const Azan = GObject.registerClass(
                 midnight: _('Muntasaf Al-Layl'),
             };
 
-            // Define primary prayers
             this._primaryPrayers = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
 
             this._timeConciseLevels = {
@@ -197,7 +197,7 @@ const Azan = GObject.registerClass(
             this._permStore = new PermissionStore.PermissionStore(
                 (proxy, error) => {
                     if (error) {
-                        log(
+                        this.logger.log(
                             'Failed to connect to permissionStore: ' +
                                 error.message
                         );
@@ -209,7 +209,7 @@ const Azan = GObject.registerClass(
                         'geolocation',
                         (res, error) => {
                             if (error)
-                                log(
+                                this.logger.log(
                                     'Error looking up permission: ' +
                                         error.message
                                 );
@@ -327,11 +327,9 @@ const Azan = GObject.registerClass(
                 this[optKey] = this._settings[getMethod](key);
             });
 
-            // Map the notification index to actual minutes
             this._opt_notify_before_azan =
                 this._notifyBeforeAzanMinutes[this._opt_notify_before_azan];
 
-            // Map the concise list index to level
             this._opt_concise_list =
                 this._conciseListLevels[this._opt_concise_list];
 
@@ -364,7 +362,7 @@ const Azan = GObject.registerClass(
                     try {
                         this._gclueService = Geoclue.Simple.new_finish(res);
                     } catch (e) {
-                        log(
+                        this.logger.log(
                             'Failed to connect to Geoclue2 service: ' +
                                 e.message
                         );
@@ -381,11 +379,9 @@ const Azan = GObject.registerClass(
             let [
                 table,
                 id,
-                // deleted
                 ,
-                // data
                 ,
-                perms
+                perms,
             ] = params;
 
             if (table != 'gnome' || id != 'geolocation') return;
@@ -540,7 +536,7 @@ const Azan = GObject.registerClass(
                 );
                 let diffSeconds = prayerSeconds - currentSeconds;
 
-                // Handle wrap-around at midnight
+                // ? Handling wrap-around at midnight
                 if (diffSeconds < -12 * 3600) {
                     diffSeconds += 24 * 3600;
                 } else if (diffSeconds > 12 * 3600) {
@@ -549,20 +545,20 @@ const Azan = GObject.registerClass(
 
                 const diffMinutes = Math.floor(diffSeconds / 60);
 
-                // 1. If it’s prayer time
+                // ? If it’s prayer time
                 if (diffMinutes === 0) {
                     isTimeForPraying = true;
                     nearestPrayerId = prayerId;
                     break;
                 }
 
-                // 2. If prayer just ended (show "since athan" messages)
+                // ? If prayer just ended (show "since athan" messages)
                 if (diffMinutes < 0 && diffMinutes >= -15) {
                     isAfterAzan = true;
                     nearestPrayerId = prayerId;
                 }
 
-                // 3. Find the nearest upcoming primary prayer
+                // ? Then find the nearest upcoming primary prayer
                 if (diffMinutes >= 0 && diffMinutes < minDiffMinutes) {
                     minDiffMinutes = diffMinutes;
                     nearestPrayerId = prayerId;
@@ -616,12 +612,15 @@ const Azan = GObject.registerClass(
                 !this._beforeAzanNotified
             ) {
                 Main.notify(
-                    // Arabic prular form
+                    // ? Arabic plural form
                     ngettext(
                         'One minute remaining until %s prayer.',
                         '%d minutes remaining until %s prayer.',
                         this._opt_notify_before_azan
-                    ).format(this._opt_notify_before_azan, this._timeNames[nearestPrayerId]),
+                    ).format(
+                        this._opt_notify_before_azan,
+                        this._timeNames[nearestPrayerId]
+                    ),
                     _('Prayer time: %s').format(timesStr[nearestPrayerId])
                 );
                 this._beforeAzanNotified = true;
@@ -633,7 +632,9 @@ const Azan = GObject.registerClass(
                 this._opt_notify_for_azan
             ) {
                 Main.notify(
-                    _('It’s time for %s prayer.').format(this._timeNames[nearestPrayerId]),
+                    _('It’s time for %s prayer.').format(
+                        this._timeNames[nearestPrayerId]
+                    ),
                     _('Prayer time: %s').format(timesStr[nearestPrayerId])
                 );
                 this._azanNotified = true;
@@ -644,20 +645,20 @@ const Azan = GObject.registerClass(
             isTimeForPraying,
             isAfterAzan,
             diffMinutes,
-            nearestPrayerId,
-            // timesStr
+            nearestPrayerId
         ) {
-            // Show "It's time for <prayer>" when it's time for prayer
             if (isTimeForPraying) {
                 this.indicatorText.set_text(
-                    _('It’s time for %s prayer.').format(this._timeNames[nearestPrayerId])
+                    _('It’s time for %s prayer.').format(
+                        this._timeNames[nearestPrayerId]
+                    )
                 );
                 return;
             }
 
-            // Default: Show time until the next prayer
+            // ? Default: Show time until the next prayer
             this.indicatorText.set_text(
-                pgettext('Extention indecator',"%s -%s").format(
+                pgettext('Extention indecator', '%s -%s').format(
                     this._timeNames[nearestPrayerId],
                     this._formatRemainingTimeFromMinutes(diffMinutes)
                 )
@@ -681,7 +682,7 @@ const Azan = GObject.registerClass(
             let minutes = Math.abs(diffMinutes) % 60;
 
             return '%s:%s'.format(
-                hours.toString().padStart(2, '0'), 
+                hours.toString().padStart(2, '0'),
                 minutes.toString().padStart(2, '0')
             );
         }

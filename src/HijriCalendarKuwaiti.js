@@ -82,14 +82,14 @@ export function KuwaitiCalendar(adjust) {
 
     let myRes = new Array(8);
 
-    myRes[0] = day; //calculated day (CE)
-    myRes[1] = month - 1; //calculated month (CE)
-    myRes[2] = year; //calculated year (CE)
-    myRes[3] = jd - 1; //julian day number
-    myRes[4] = wd - 1; //weekday number
-    myRes[5] = id; //islamic date
-    myRes[6] = im - 1; //islamic month
-    myRes[7] = iy; //islamic year
+    myRes[0] = day; // * Calculated day (CE)
+    myRes[1] = month - 1; // * Calculated month (CE)
+    myRes[2] = year; // * Calculated year (CE)
+    myRes[3] = jd - 1; // * Julian day number
+    myRes[4] = wd - 1; // * Weekday number
+    myRes[5] = id; // * Islamic date
+    myRes[6] = im - 1; // * Islamic month
+    myRes[7] = iy; // * Islamic year
 
     return myRes;
 }

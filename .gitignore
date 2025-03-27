@@ -2,3 +2,6 @@
 /node_modules/
 /schemas/gschemas.compiled
 /po/mo/
+package-lock.json
+bun.lockb
+bun.lock

@@ -26,7 +26,7 @@ check:
 	@command -v eslint >/dev/null 2>&1 || { echo >&2 "ESLint is not installed. Aborting."; exit 1; }
 	@echo "Done."
 
-# Compile the schemas if the directory exists
+# ? Compiles the schemas if its directory exists
 compile-schemas:
 	@if [ -d schemas ]; then \
 		glib-compile-schemas schemas; \
@@ -34,7 +34,7 @@ compile-schemas:
 		echo "Warning: schemas directory does not exist. Skipping schema compilation."; \
 	fi
 
-# Lint JavaScript files if the src directory exists
+# ? Lints JavaScript files if the [src] directory exists
 lint: check
 	@if [ -d src ]; then \
 		node_modules/.bin/eslint src/**/*.js; \
@@ -42,7 +42,7 @@ lint: check
 		echo "Warning: src directory does not exist. Skipping linting."; \
 	fi
 
-# Build the extension
+# ? Builds the extension
 all: clean compile-schemas pot
 	@if [ -d src ]; then \
 		mkdir -p $(BUILDDIR)/$(UUID); \
@@ -75,7 +75,7 @@ all: clean compile-schemas pot
 	fi
 	@echo "+ Build done"
 
-# Create a ZIP file for the GNOME extension
+# ? Creates a ZIP file for the GNOME extension
 zip: all
 	@if [ -d $(BUILDDIR)/$(UUID) ]; then \
 		cd $(BUILDDIR)/$(UUID) && \
@@ -102,7 +102,7 @@ zip: all
 		exit 1; \
 	fi
 
-# Uninstall the extension
+# ? Uninstalls the extension
 uninstall:
 	@if [ -d $(INSTALL_PATH)/$(UUID) ]; then \
 		rm -rf $(INSTALL_PATH)/$(UUID); \
@@ -111,7 +111,7 @@ uninstall:
 		echo "Warning: Extension is not installed."; \
 	fi
 
-# Install the extension
+# ? Installs the extension
 install: uninstall zip
 	@if [ -f $(BUILDDIR)/$(UUID).shell-extension.zip ]; then \
 		gnome-extensions install -f $(BUILDDIR)/$(UUID).shell-extension.zip; \
@@ -121,12 +121,12 @@ install: uninstall zip
 		exit 1; \
 	fi
 
-# Reload GNOME Shell
+# ? Reloads GNOME Shell
 reloadGnome:
 	@dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()' || \
 	{ echo "Failed to reload GNOME Shell. Please restart it manually."; exit 1; }
 
-# Update translation files if translation directory exists
+# ? Updates translation files if translation directory exists
 pot:
 	@if [ -d po ]; then \
 		rm -f po/LINGUAS; \

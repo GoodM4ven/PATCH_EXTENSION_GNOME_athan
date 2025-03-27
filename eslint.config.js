@@ -3,18 +3,16 @@ import pkg from '@eslint/js';
 const { configs } = pkg;
 
 export default [
-    configs.recommended, // Use ESLint's recommended rules
+    configs.recommended,
     {
-        ignores: ['node_modules/**'], // Ignore node_modules
+        ignores: ['node_modules/**'],
         languageOptions: {
-            ecmaVersion: 'latest', // Equivalent to ES2021+
+            ecmaVersion: 'latest',
             sourceType: 'module',
             globals: {
                 browser: true,
             },
         },
-        rules: {
-            // Add your custom rules here if needed
-        },
+        rules: {},
     },
 ];
