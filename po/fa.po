@@ -224,7 +224,7 @@ msgstr "نیمه شب"
 
 #: src/prefs.js:36
 msgid "Automatic location"
-msgstr "موقعیت خودکار"
+msgstr "پیدا کردن خودکار موقعیت مکانی"
 
 #: src/prefs.js:39
 msgid "AM/PM time format"
