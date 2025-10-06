@@ -36,8 +36,8 @@ msgid "Al-Ithnain"
 msgstr "Al-Ithnain"
 
 #: src/extension.js:64
-msgid "Al-Thulatha"
-msgstr "Al-Thulatha"
+msgid "Al-Thulatha'"
+msgstr "Al-Thulatha'"
 
 #: src/extension.js:65
 msgid "Al-Arbi'a'"

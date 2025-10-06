@@ -22,7 +22,7 @@ msgstr "المؤذن"
 
 #: src/extension.js:49 src/extension.js:124 src/extension.js:150
 msgid "..."
-msgstr "***"
+msgstr "..."
 
 #: src/extension.js:57
 msgid "%A %B %e, %Y"
@@ -37,7 +37,7 @@ msgid "Al-Ithnain"
 msgstr "الإثنين"
 
 #: src/extension.js:64
-msgid "Al-Thulatha"
+msgid "Al-Thulatha'"
 msgstr "الثلاثاء"
 
 #: src/extension.js:65

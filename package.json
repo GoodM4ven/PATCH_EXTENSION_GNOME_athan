@@ -1,7 +1,6 @@
 {
     "private": true,
     "name": "athan-gnome-shell-extension",
-    "version": "2.3.0",
     "type": "module",
     "description": "A prayer reminder and Hijri date displayer extension. [Originally by fahrinh @ github]\n\nKeywords: Islam, Islamic, notification, time, calendar, prayers.",
     "keywords": [

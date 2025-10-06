@@ -83,7 +83,6 @@ zip: all
 			--extra-source=schemas \
 			--extra-source=schemas/gschemas.compiled \
 			--extra-source=locale \
-			--extra-source=images \
 			--extra-source=HijriCalendarKuwaiti.js \
 			--extra-source=PrayTimes.js \
 			--extra-source=stylesheet.css \

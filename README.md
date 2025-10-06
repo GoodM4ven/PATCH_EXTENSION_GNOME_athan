@@ -57,6 +57,8 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - [Abdo Eid](https://github.com/abdoei)
 - [technology-maen](https://github.com/technology-maen)
 - [JustPerfection](https://extensions.gnome.org/accounts/profile/JustPerfection)
+- [Efran](https://github.com/Erfan-0)
+- [Farooq](https://github.com/farooqkz)
 - All the other contributors for the tree forks!
 - And the generous individuals that we've learned from and been supported by throughout our journey...
 

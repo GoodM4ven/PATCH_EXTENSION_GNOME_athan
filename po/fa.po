@@ -14,6 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 #: src/extension.js:24
 msgid "Azan"
@@ -36,7 +37,7 @@ msgid "Al-Ithnain"
 msgstr "دوشنبه"
 
 #: src/extension.js:64
-msgid "Al-Thulatha"
+msgid "Al-Thulatha'"
 msgstr "سه‌شنبه"
 
 #: src/extension.js:65
@@ -141,7 +142,7 @@ msgstr "سازمان هم‌بستگی کشور‌های اسلامی"
 
 #: src/extension.js:113 src/PrayTimes.js:14
 msgid "Umm Al-Qura University, Makkah"
-msgstr "دانشگاه ام‌القری"  
+msgstr "دانشگاه ام‌القری"
 
 #: src/extension.js:114
 msgid "Egyptian General Authority of Survey, Egypt"
@@ -150,7 +151,6 @@ msgstr "سازمان کل نقشه‌برداری مصر"
 #: src/extension.js:115 src/PrayTimes.js:22
 msgid "University of Islamic Sciences, Karachi"
 msgstr "دانشگاه علوم اسلامی، کراچی"
-
 
 #: src/extension.js:612
 #, javascript-format
@@ -168,7 +168,6 @@ msgstr "وقت نماز: %s"
 #, javascript-format
 msgid "It’s time for %s prayer."
 msgstr "اکنون وقت نماز %s است."
-
 
 #: src/extension.js:651
 #, javascript-format
@@ -234,7 +233,6 @@ msgstr "قالب ساعت ۱۲ ساعته"
 msgid "Notify me when it's athan time"
 msgstr "اطلاع‌رسانی قبل از وقت اذان"
 
-
 #: src/prefs.js:46
 msgid "Latitude"
 msgstr "عرض جغرافیایی"
@@ -286,7 +284,6 @@ msgstr "اعلان‌ها"
 #: src/prefs.js:206
 msgid "Auto"
 msgstr "خودکار"
-
 
 #: src/prefs.js:207
 msgid "GMT -12:00"
