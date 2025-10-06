@@ -101,35 +101,35 @@ msgstr "ذوالقعده"
 
 #: src/extension.js:82
 msgid "Thu Al-Hijjah"
-msgstr "پنج‌شنبه ذوالحجه"
+msgstr "ذوالحجه"
 
 #: src/extension.js:88
 msgid "Al-Fajr"
-msgstr "نماز صبح"
+msgstr "فجر"
 
 #: src/extension.js:89
 msgid "Al-Shurooq"
-msgstr "طلوع آفتاب"
+msgstr "طلوع"
 
 #: src/extension.js:90
 msgid "Jummah"
-msgstr "نماز جمعه"
+msgstr "جمعه"
 
 #: src/extension.js:90
 msgid "Al-Thuhr"
-msgstr "نماز ظهر"
+msgstr "ظهر"
 
 #: src/extension.js:91
 msgid "Al-Asr"
-msgstr "نماز عصر"
+msgstr "عصر"
 
 #: src/extension.js:92
 msgid "Al-Maghrib"
-msgstr "نماز مغرب"
+msgstr "مغرب"
 
 #: src/extension.js:93
 msgid "Al-Isha'"
-msgstr "نماز عشاء"
+msgstr "عشاء"
 
 #: src/extension.js:94
 msgid "Muntasaf Al-Layl"
@@ -137,15 +137,15 @@ msgstr "نیمه شب"
 
 #: src/extension.js:112 src/PrayTimes.js:10
 msgid "Muslim World League"
-msgstr "لیگ جهانی مسلمانان"
+msgstr "سازمان هم‌بستگی کشور‌های اسلامی"
 
 #: src/extension.js:113 src/PrayTimes.js:14
 msgid "Umm Al-Qura University, Makkah"
-msgstr "دانشگاه ام القُرای مکه"
+msgstr "دانشگاه ام‌القری"  
 
 #: src/extension.js:114
 msgid "Egyptian General Authority of Survey, Egypt"
-msgstr "سازمان کل نقشه‌ برداری مصر"
+msgstr "سازمان کل نقشه‌برداری مصر"
 
 #: src/extension.js:115 src/PrayTimes.js:22
 msgid "University of Islamic Sciences, Karachi"
@@ -156,8 +156,8 @@ msgstr "دانشگاه علوم اسلامی، کراچی"
 #, javascript-format
 msgid "One minute remaining until %s prayer."
 msgid_plural "%d minutes remaining until %s prayer."
-msgstr[0] "One minute remaining until %s prayer."
-msgstr[1] "%d minutes remaining until %s prayer."
+msgstr[0] "یک دقیقه تا نماز %s باقی مانده است."
+msgstr[1] "%d دقیقه تا نماز %s باقی مانده است."
 
 #: src/extension.js:616 src/extension.js:628
 #, javascript-format
@@ -184,7 +184,7 @@ msgstr "%s, %s %s %s"
 
 #: src/PrayTimes.js:18
 msgid "Egyptian General Authority of Survey"
-msgstr "اداره کل نظر سنجی مصر"
+msgstr "سازمان کل نقشه‌برداری مصر"
 
 #: src/PrayTimes.js:30
 msgid "Imsak"
@@ -192,7 +192,7 @@ msgstr "امساک (شروع روزه)"
 
 #: src/PrayTimes.js:31
 msgid "Fajr"
-msgstr "نماز صبح"
+msgstr "صبح"
 
 #: src/PrayTimes.js:32
 msgid "Sunrise"
@@ -200,23 +200,23 @@ msgstr "طلوع آفتاب"
 
 #: src/PrayTimes.js:33
 msgid "Dhuhr"
-msgstr "نماز ظهر"
+msgstr "ظهر"
 
 #: src/PrayTimes.js:34
 msgid "Asr"
-msgstr "نماز عصر"
+msgstr "عصر"
 
 #: src/PrayTimes.js:35
 msgid "Sunset"
-msgstr "غروب آفتاب"
+msgstr "غروب"
 
 #: src/PrayTimes.js:36
 msgid "Maghrib"
-msgstr "نماز مغرب"
+msgstr "مغرب"
 
 #: src/PrayTimes.js:37
 msgid "Isha"
-msgstr "نماز عشاء"
+msgstr "عشاء"
 
 #: src/PrayTimes.js:38
 msgid "Midnight"
@@ -228,11 +228,12 @@ msgstr "موقعیت خودکار"
 
 #: src/prefs.js:39
 msgid "AM/PM time format"
-msgstr "قالب ساعت AM/PM"
+msgstr "قالب ساعت ۱۲ ساعته"
 
 #: src/prefs.js:42
 msgid "Notify me when it's athan time"
-msgstr "زمان اذان را به من اطلاع بده"
+msgstr "اطلاع‌رسانی قبل از وقت اذان"
+
 
 #: src/prefs.js:46
 msgid "Latitude"
@@ -264,7 +265,7 @@ msgstr "نمایش اوقات"
 
 #: src/prefs.js:89
 msgid "Notify me before athan"
-msgstr "قبل از اذان به من اطلاع بده"
+msgstr "اطلاع‌ رسانی قبل از وقت اذان"
 
 #: src/prefs.js:96
 msgid "Calculation"
@@ -289,111 +290,111 @@ msgstr "خودکار"
 
 #: src/prefs.js:207
 msgid "GMT -12:00"
-msgstr "GMT -۱۲:۰۰"
+msgstr "گرینویچ -۱۲:۰۰"
 
 #: src/prefs.js:208
 msgid "GMT -11:00"
-msgstr "GMT -۱۱:۰۰"
+msgstr "گرینویچ -۱۱:۰۰"
 
 #: src/prefs.js:209
 msgid "GMT -10:00"
-msgstr "GMT -۱۰:۰۰"
+msgstr "گرینویچ -۱۰:۰۰"
 
 #: src/prefs.js:210
 msgid "GMT -09:00"
-msgstr "GMT -۰۹:۰۰"
+msgstr "گرینویچ -۰۹:۰۰"
 
 #: src/prefs.js:211
 msgid "GMT -08:00"
-msgstr "GMT -۰۸:۰۰"
+msgstr "گرینویچ -۰۸:۰۰"
 
 #: src/prefs.js:212
 msgid "GMT -07:00"
-msgstr "GMT -۰۷:۰۰"
+msgstr "گرینویچ -۰۷:۰۰"
 
 #: src/prefs.js:213
 msgid "GMT -06:00"
-msgstr "GMT -۰۶:۰۰"
+msgstr "گرینویچ -۰۶:۰۰"
 
 #: src/prefs.js:214
 msgid "GMT -05:00"
-msgstr "GMT -۰۵:۰۰"
+msgstr "گرینویچ -۰۵:۰۰"
 
 #: src/prefs.js:215
 msgid "GMT -04:00"
-msgstr "GMT -۰۴:۰۰"
+msgstr "گرینویچ -۰۴:۰۰"
 
 #: src/prefs.js:216
 msgid "GMT -03:00"
-msgstr "GMT -۰۳:۰۰"
+msgstr "گرینویچ -۰۳:۰۰"
 
 #: src/prefs.js:217
 msgid "GMT -02:00"
-msgstr "GMT -۰۲:۰۰"
+msgstr "گرینویچ -۰۲:۰۰"
 
 #: src/prefs.js:218
 msgid "GMT -01:00"
-msgstr "GMT -۰۱:۰۰"
+msgstr "گرینویچ -۰۱:۰۰"
 
 #: src/prefs.js:219
 msgid "GMT +00:00"
-msgstr "GMT +۰۰:۰۰"
+msgstr "گرینویچ +۰۰:۰۰"
 
 #: src/prefs.js:220
 msgid "GMT +01:00"
-msgstr "GMT +۰۱:۰۰"
+msgstr "گرینویچ +۰۱:۰۰"
 
 #: src/prefs.js:221
 msgid "GMT +02:00"
-msgstr "GMT +۰۲:۰۰"
+msgstr "گرینویچ +۰۲:۰۰"
 
 #: src/prefs.js:222
 msgid "GMT +03:00"
-msgstr "GMT +۰۳:۰۰"
+msgstr "گرینویچ +۰۳:۰۰"
 
 #: src/prefs.js:223
 msgid "GMT +04:00"
-msgstr "GMT +۰۴:۰۰"
+msgstr "گرینویچ +۰۴:۰۰"
 
 #: src/prefs.js:224
 msgid "GMT +05:00"
-msgstr "GMT +۰۵:۰۰"
+msgstr "گرینویچ +۰۵:۰۰"
 
 #: src/prefs.js:225
 msgid "GMT +06:00"
-msgstr "GMT +۰۶:۰۰"
+msgstr "گرینویچ +۰۶:۰۰"
 
 #: src/prefs.js:226
 msgid "GMT +07:00"
-msgstr "GMT +۰۷:۰۰"
+msgstr "گرینویچ +۰۷:۰۰"
 
 #: src/prefs.js:227
 msgid "GMT +08:00"
-msgstr "GMT +۰۸:۰۰"
+msgstr "گرینویچ +۰۸:۰۰"
 
 #: src/prefs.js:228
 msgid "GMT +09:00"
-msgstr "GMT +۰۹:۰۰"
+msgstr "گرینویچ +۰۹:۰۰"
 
 #: src/prefs.js:229
 msgid "GMT +10:00"
-msgstr "GMT +۱۰:۰۰"
+msgstr "گرینویچ +۱۰:۰۰"
 
 #: src/prefs.js:230
 msgid "GMT +11:00"
-msgstr "GMT +۱۱:۰۰"
+msgstr "گرینویچ +۱۱:۰۰"
 
 #: src/prefs.js:231
 msgid "GMT +12:00"
-msgstr "GMT +۱۲:۰۰"
+msgstr "گرینویچ +۱۲:۰۰"
 
 #: src/prefs.js:232
 msgid "GMT +13:00"
-msgstr "GMT +1۳:۰۰"
+msgstr "گرینویچ +۱۳:۰۰"
 
 #: src/prefs.js:233
 msgid "GMT +14:00"
-msgstr "GMT +۱۴:۰۰"
+msgstr "گرینویچ +۱۴:۰۰"
 
 #: src/prefs.js:243
 msgid "Center"
