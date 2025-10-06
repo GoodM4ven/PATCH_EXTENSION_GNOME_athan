@@ -69,7 +69,7 @@ msgstr "ربیع الاول"
 
 #: src/extension.js:74
 msgid "Rabi' Al-Aakhir"
-msgstr "ربیع‌الآخر"
+msgstr "ربیع الآخر"
 
 #: src/extension.js:75
 msgid "Jumada Al-Uola"
