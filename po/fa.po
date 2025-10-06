@@ -65,19 +65,19 @@ msgstr "صفر"
 
 #: src/extension.js:73
 msgid "Rabi' Al-Awwal"
-msgstr "ربیع‌الاول"
+msgstr "ربیع الاول"
 
 #: src/extension.js:74
 msgid "Rabi' Al-Aakhir"
-msgstr "ربیع‌الآخر"
+msgstr "ربیع الآخر"
 
 #: src/extension.js:75
 msgid "Jumada Al-Uola"
-msgstr "جمادی‌الاول"
+msgstr "جمادی الاول"
 
 #: src/extension.js:76
 msgid "Jumada Al-Aakhirah"
-msgstr "جمادی‌الآخر"
+msgstr "جمادی الآخر"
 
 #: src/extension.js:77
 msgid "Rajab"
@@ -224,7 +224,7 @@ msgstr "نیمه شب"
 
 #: src/prefs.js:36
 msgid "Automatic location"
-msgstr "موقعیت خودکار"
+msgstr "پیدا کردن خودکار موقعیت مکانی"
 
 #: src/prefs.js:39
 msgid "AM/PM time format"
