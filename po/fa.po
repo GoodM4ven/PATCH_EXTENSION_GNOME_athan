@@ -77,7 +77,7 @@ msgstr "جمادی الاول"
 
 #: src/extension.js:76
 msgid "Jumada Al-Aakhirah"
-msgstr "جمادی‌الآخر"
+msgstr "جمادی الآخر"
 
 #: src/extension.js:77
 msgid "Rajab"
