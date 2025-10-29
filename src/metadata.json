@@ -1,10 +1,10 @@
 {
-    "uuid": "athan@goodm4ven",
+    "uuid": "PATCH_EXTENSION_GNOME_athan@GoodM4ven",
     "name": "AthanTimes",
     "url": "https://github.com/goodm4ven/PATCH_EXTENSION_GNOME_athan",
     "description": "A prayer reminder and Hijri date displayer extension. [Originally by fahrinh @ github]\n\nKeywords: Islam, Islamic, notification, time, calendar, prayers.",
     "settings-schema": "org.gnome.shell.extensions.athan",
-    "shell-version": ["48"],
+    "shell-version": ["48","49"],
     "version": 22,
     "gettext-domain": "athan@goodm4ven"
 }
