@@ -29,6 +29,8 @@ This is a modified fork off of the original by [fahrinh](https://github.com/fahr
 
 ## Development
 
+You need the following packages installed: `make` and `gettext`.
+
 Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.org/Boxes/) was a hero!
 
 ### Supported GNOME Versions:

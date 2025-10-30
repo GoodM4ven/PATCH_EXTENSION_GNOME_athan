@@ -128,17 +128,36 @@ reloadGnome:
 # ? Updates translation files if translation directory exists
 pot:
 	@if [ -d po ]; then \
+		if ! command -v msginit >/dev/null 2>&1 || ! command -v msgmerge >/dev/null 2>&1 || ! command -v msgfmt >/dev/null 2>&1; then \
+			echo "Error: gettext tools (msginit, msgmerge, msgfmt) are required. Install gettext to update translations."; \
+			exit 1; \
+		fi; \
 		rm -f po/LINGUAS; \
 		for l in $$(ls po/*.po); do basename $$l .po >> po/LINGUAS; done; \
 		mkdir -p po/mo; \
 		cp po/LINGUAS po/mo/LINGUAS; \
 		cd po && \
 		for lang in $$(cat LINGUAS); do \
-			mv $${lang}.po $${lang}.po.old; \
-			msginit --no-translator --locale=$$lang --input $(UUID).pot -o $${lang}.po.new > /dev/null; \
-			msgmerge -N $${lang}.po.old $${lang}.po.new > $${lang}.po; \
-			rm $${lang}.po.old $${lang}.po.new; \
-			msgfmt -o mo/$${lang}.mo $${lang}.po; \
+			cp $${lang}.po $${lang}.po.bak; \
+			if ! msginit --no-translator --locale=$$lang --input $(UUID).pot -o $${lang}.po.new >/dev/null; then \
+				echo "Error: Failed to initialize $$lang translation. Restoring original file."; \
+				mv $${lang}.po.bak $${lang}.po; \
+				rm -f $${lang}.po.new; \
+				exit 1; \
+			fi; \
+			if ! msgmerge -N $${lang}.po.bak $${lang}.po.new -o $${lang}.po; then \
+				echo "Error: Failed to merge $$lang translation. Restoring original file."; \
+				mv $${lang}.po.bak $${lang}.po; \
+				rm -f $${lang}.po.new; \
+				exit 1; \
+			fi; \
+			if ! msgfmt -o mo/$${lang}.mo $${lang}.po; then \
+				echo "Error: Failed to compile $$lang translation. Restoring original file."; \
+				mv $${lang}.po.bak $${lang}.po; \
+				rm -f $${lang}.po.new mo/$${lang}.mo; \
+				exit 1; \
+			fi; \
+			rm -f $${lang}.po.bak $${lang}.po.new; \
 		done; \
 		echo "+ POT file generation done"; \
 	else \
