@@ -33,6 +33,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 
 ### Supported GNOME Versions:
 
+- [49](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v49)
 - [48](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v48)
 - [47](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v47)
 - [46](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v46)
@@ -59,6 +60,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - [JustPerfection](https://extensions.gnome.org/accounts/profile/JustPerfection)
 - [Efran](https://github.com/Erfan-0)
 - [Farooq](https://github.com/farooqkz)
+- [eltaweel068](https://github.com/eltaweel068)
 - All the other contributors for the tree forks!
 - And the generous individuals that we've learned from and been supported by throughout our journey...
 
