@@ -38,6 +38,10 @@ class Settings {
         this.field_time_format_12_toggle = new Adw.SwitchRow({
             title: _('AM/PM time format'),
         });
+        this.field_use_arabic_toggle = new Adw.SwitchRow({
+            title: _('Force Arabic'),
+            subtitle: _('Restart extension to apply.'),
+        });
         this.field_azan_notification_toggle = new Adw.SwitchRow({
             title: _("Notify me when it's athan time"),
         });
@@ -107,6 +111,7 @@ class Settings {
         this.displayGroup = new Adw.PreferencesGroup({ title: _('Display') });
         this.displayGroup.add(this.field_panel_position);
         this.displayGroup.add(this.field_time_format_12_toggle);
+        this.displayGroup.add(this.field_use_arabic_toggle);
         this.displayGroup.add(this.field_which_times_mode);
 
         this.notificationsGroup = new Adw.PreferencesGroup({
@@ -132,6 +137,12 @@ class Settings {
         this.schema.bind(
             'time-format-12',
             this.field_time_format_12_toggle,
+            'active',
+            Gio.SettingsBindFlags.DEFAULT
+        );
+        this.schema.bind(
+            'use-arabic',
+            this.field_use_arabic_toggle,
             'active',
             Gio.SettingsBindFlags.DEFAULT
         );
