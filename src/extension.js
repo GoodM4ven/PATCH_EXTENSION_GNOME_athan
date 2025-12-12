@@ -13,12 +13,13 @@ import * as PermissionStore from 'resource:///org/gnome/shell/misc/permissionSto
 import * as PrayTimes from './PrayTimes.js';
 import * as HijriCalendarKuwaiti from './HijriCalendarKuwaiti.js';
 
+const POSITION = ['center', 'left', 'right'];
+const STATUS_AREA_ROLE = 'athan@goodm4ven';
+
 const Azan = GObject.registerClass(
     class Azan extends PanelMenu.Button {
         _init(extension) {
             super._init(0.5, _('Azan'));
-
-            Main.panel.addToStatusArea('athan@goodm4ven', this, 1, 'center');
 
             this.indicatorText = new St.Label({ text: _('Loading...'), y_align: Clutter.ActorAlign.CENTER });
             this.add_child(this.indicatorText);
@@ -48,6 +49,9 @@ const Azan = GObject.registerClass(
             this._settings = extension.getSettings('org.gnome.shell.extensions.athan');
             this._bindSettings();
             this._loadSettings();
+
+            this._panelBoxSide = null;
+            this._addToPanel();
 
             this._dateFormatFull = _('%A %B %e, %Y');
 
@@ -298,6 +302,7 @@ const Azan = GObject.registerClass(
             });
             this._settings.connect('changed::' + 'panel-position', (settings, key) => {
                 this._opt_panel_position = settings.get_int(key);
+                this._repositionPanelIndicator();
                 this._updateLabel();
             });
             this._settings.connect('changed::' + 'time-format-12', (settings, key) => {
@@ -364,6 +369,54 @@ const Azan = GObject.registerClass(
                 this._opt_notification_before_iqamah = settings.get_int(key);
                 this._updateLabel();
             });
+        }
+
+        _addToPanel() {
+            this._panelBoxSide = POSITION[this._opt_panel_position];
+            Main.panel.addToStatusArea(STATUS_AREA_ROLE, this, 1, this._panelBoxSide);
+        }
+
+        // Move indicator immediately when the user changes the panel side.
+        _repositionPanelIndicator() {
+            const newSide = POSITION[this._opt_panel_position];
+            if (!newSide || newSide === this._panelBoxSide) return;
+
+            const indicatorActor = this._getIndicatorActor();
+            const targetBox = this._getPanelBox(newSide);
+
+            if (!indicatorActor || !targetBox) return;
+
+            try {
+                // GNOME 46 exposes _addToPanelBox; prefer it so menu wiring stays intact.
+                if (typeof Main.panel._addToPanelBox === 'function') {
+                    Main.panel._addToPanelBox(STATUS_AREA_ROLE, this, 1, targetBox);
+                } else {
+                    const parent = indicatorActor.get_parent();
+                    if (parent === targetBox) return;
+
+                    if (parent) parent.remove_child(indicatorActor);
+                    targetBox.insert_child_at_index(indicatorActor, 1);
+                }
+
+                this._panelBoxSide = newSide;
+            } catch (error) {
+                log(`Failed to reposition athan indicator: ${error}`);
+            }
+        }
+
+        _getPanelBox(side) {
+            switch (side) {
+                case 'left':
+                    return Main.panel._leftBox;
+                case 'center':
+                    return Main.panel._centerBox;
+                default:
+                    return Main.panel._rightBox;
+            }
+        }
+
+        _getIndicatorActor() {
+            return this.container || this;
         }
 
         _updatePrayerVisibility() {
