@@ -13,12 +13,12 @@ import * as PermissionStore from 'resource:///org/gnome/shell/misc/permissionSto
 import * as PrayTimes from './PrayTimes.js';
 import * as HijriCalendarKuwaiti from './HijriCalendarKuwaiti.js';
 
+const POSITION = ['center', 'left', 'right'];
+
 const Azan = GObject.registerClass(
     class Azan extends PanelMenu.Button {
         _init(extension) {
             super._init(0.5, _('Azan'));
-
-            Main.panel.addToStatusArea('athan@goodm4ven', this, 1, 'center');
 
             this.indicatorText = new St.Label({ text: _('Loading...'), y_align: Clutter.ActorAlign.CENTER });
             this.add_child(this.indicatorText);
@@ -48,6 +48,9 @@ const Azan = GObject.registerClass(
             this._settings = extension.getSettings('org.gnome.shell.extensions.athan');
             this._bindSettings();
             this._loadSettings();
+
+            var position = POSITION[this._opt_panel_position];
+            Main.panel.addToStatusArea('athan@goodm4ven', this, 1, position);
 
             this._dateFormatFull = _('%A %B %e, %Y');
 
