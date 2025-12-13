@@ -63,6 +63,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - [Efran](https://github.com/Erfan-0)
 - [Farooq](https://github.com/farooqkz)
 - [eltaweel068](https://github.com/eltaweel068)
+- [baronleonardo](https://github.com/baronleonardo)
 - All the other contributors for the tree forks!
 - And the generous individuals that we've learned from and been supported by throughout our journey...
 
