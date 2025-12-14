@@ -67,7 +67,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - All the other contributors for the tree forks!
 - And the generous individuals that we've learned from and been supported by throughout our journey...
 
-- [ChatGPT](https://chat.openai.com)
+- [ChatGPT](https://chat.openai.com) + [Codex](https://chatgpt.com/codex)
 - [DateHijri](https://datehijri.com/)
 - [GNOME](https://gnome.org/)
 - [Linux](https://kernel.org/)
