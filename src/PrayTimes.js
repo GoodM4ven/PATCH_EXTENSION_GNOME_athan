@@ -22,6 +22,10 @@ export function getMethods() {
             name: _('University of Islamic Sciences, Karachi'),
             params: { fajr: 18, isha: 18 },
         },
+        MUI : {
+            name: _('Indonesian Ulema Council'),
+            params: { fajr: 20, isha: 18 },
+        },
     };
 }
 

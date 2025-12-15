@@ -152,6 +152,10 @@ msgstr "الهيئة المصرية العامة للمساحة، مصر"
 msgid "University of Islamic Sciences, Karachi"
 msgstr "معهد العالمية للدراسات الإسلامية، كاراتشي"
 
+#: src/extension.js:117 src/PrayTimes.js:26
+msgid "Indonesian Ulema Council"
+msgstr "مجلس العلماء الإندونيسي"
+
 #: src/extension.js:612
 #, javascript-format
 msgid "One minute remaining until %s prayer."
