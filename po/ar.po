@@ -193,10 +193,6 @@ msgstr "%s، %s %s %s"
 msgid "Egyptian General Authority of Survey"
 msgstr "الهيئة المصرية العامة للمساحة"
 
-#: src/PrayTimes.js:30
-msgid "Imsak"
-msgstr "إمساك الصيام"
-
 #: src/PrayTimes.js:31
 msgid "Fajr"
 msgstr "الفجر"

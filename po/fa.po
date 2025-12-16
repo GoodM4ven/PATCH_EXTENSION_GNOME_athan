@@ -189,10 +189,6 @@ msgstr "%s, %s %s %s"
 msgid "Egyptian General Authority of Survey"
 msgstr "سازمان کل نقشه‌برداری مصر"
 
-#: src/PrayTimes.js:30
-msgid "Imsak"
-msgstr "امساک (شروع روزه)"
-
 #: src/PrayTimes.js:31
 msgid "Fajr"
 msgstr "صبح"

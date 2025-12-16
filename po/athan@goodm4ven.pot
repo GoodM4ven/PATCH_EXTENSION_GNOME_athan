@@ -189,10 +189,6 @@ msgstr ""
 msgid "Egyptian General Authority of Survey"
 msgstr ""
 
-#: src/PrayTimes.js:30
-msgid "Imsak"
-msgstr ""
-
 #: src/PrayTimes.js:31
 msgid "Fajr"
 msgstr ""

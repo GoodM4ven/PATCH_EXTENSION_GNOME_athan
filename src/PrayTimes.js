@@ -31,7 +31,6 @@ export function getMethods() {
 
 export function PrayTimes(method) {
     var timeNames = {
-            imsak: _('Imsak'),
             fajr: _('Fajr'),
             sunrise: _('Sunrise'),
             dhuhr: _('Dhuhr'),
@@ -48,7 +47,6 @@ export function PrayTimes(method) {
         },
         calcMethod = 'MWL',
         setting = {
-            imsak: '10 min',
             dhuhr: '0 min',
             asr: 'Standard',
             highLats: 'NightMiddle',
@@ -218,11 +216,6 @@ export function PrayTimes(method) {
             times = this.dayPortion(times);
             let params = setting;
 
-            let imsak = this.sunAngleTime(
-                this.eval(params.imsak),
-                times.imsak,
-                'ccw'
-            );
             let fajr = this.sunAngleTime(
                 this.eval(params.fajr),
                 times.fajr,
@@ -243,7 +236,6 @@ export function PrayTimes(method) {
             let isha = this.sunAngleTime(this.eval(params.isha), times.isha);
 
             return {
-                imsak: imsak,
                 fajr: fajr,
                 sunrise: sunrise,
                 dhuhr: dhuhr,
@@ -256,7 +248,6 @@ export function PrayTimes(method) {
 
         computeTimes: function () {
             let times = {
-                imsak: 5,
                 fajr: 5,
                 sunrise: 6,
                 dhuhr: 12,
@@ -287,8 +278,6 @@ export function PrayTimes(method) {
 
             if (params.highLats != 'None') times = this.adjustHighLats(times);
 
-            if (this.isMin(params.imsak))
-                times.imsak = times.fajr - this.eval(params.imsak) / 60;
             if (this.isMin(params.maghrib))
                 times.maghrib = times.sunset + this.eval(params.maghrib) / 60;
             if (this.isMin(params.isha))
@@ -323,13 +312,6 @@ export function PrayTimes(method) {
             let params = setting;
             let nightTime = this.timeDiff(times.sunset, times.sunrise);
 
-            times.imsak = this.adjustHLTime(
-                times.imsak,
-                times.sunrise,
-                this.eval(params.imsak),
-                nightTime,
-                'ccw'
-            );
             times.fajr = this.adjustHLTime(
                 times.fajr,
                 times.sunrise,
