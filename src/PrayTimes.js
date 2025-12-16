@@ -6,10 +6,6 @@ function _(str) {
 
 export function getMethods() {
     return {
-        MWL: {
-            name: _('Muslim World League'),
-            params: { fajr: 18, isha: 17 },
-        },
         Makkah: {
             name: _('Umm Al-Qura University, Makkah'),
             params: { fajr: 18.5, isha: '90 min' },
@@ -17,6 +13,10 @@ export function getMethods() {
         Egypt: {
             name: _('Egyptian General Authority of Survey'),
             params: { fajr: 19.5, isha: 17.5 },
+        },
+        MWL: {
+            name: _('Muslim World League'),
+            params: { fajr: 18, isha: 17 },
         },
         Karachi: {
             name: _('University of Islamic Sciences, Karachi'),

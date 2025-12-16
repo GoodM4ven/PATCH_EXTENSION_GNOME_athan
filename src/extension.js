@@ -108,11 +108,11 @@ const Azan = GObject.registerClass(
                 midnight: 1,
             };
 
-            this._calcMethodsArr = ['MWL', 'Makkah', 'Egypt', 'Karachi', 'MUI'];
+            this._calcMethodsArr = ['Makkah', 'Egypt', 'MWL', 'Karachi', 'MUI'];
             this._calcMethodNames = [
-                _('Muslim World League'),
                 _('Umm Al-Qura University, Makkah'),
                 _('Egyptian General Authority of Survey, Egypt'),
+                _('Muslim World League'),
                 _('University of Islamic Sciences, Karachi'),
                 _('Indonesian Ulema Council'),
             ];
