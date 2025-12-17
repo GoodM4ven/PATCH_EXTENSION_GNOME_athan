@@ -5,7 +5,7 @@ BUILDDIR=build
 INSTALL_PATH=~/.local/share/gnome-shell/extensions
 #=============================================================================
 default_target: all
-.PHONY: clean all zip install reloadGnome check lint pot uninstall 
+.PHONY: clean all zip install reloadGnome check compile-schemas lint pot uninstall 
 
 clean:
 	@if [ -d $(BUILDDIR) ]; then \
@@ -14,13 +14,25 @@ clean:
 	@if [ -d po/mo ]; then \
 		rm -rf po/mo; \
 	fi
+	@if [ -f schemas/gschemas.compiled ]; then \
+		rm schemas/gschemas.compiled; \
+	fi
 	@echo "+ Clean done"
 
 check:
 	@echo "Checking prerequisites..."
-	@command -v zip >/dev/null 2>&1 || { echo >&2 "zip is not installed. Aborting."; exit 1; }
+	@command -v zip >/dev/null 2>&1 || { echo >&2 "glib-compile-schemas is not installed. Aborting."; exit 1; }
+	@command -v glib-compile-schemas >/dev/null 2>&1 || { echo >&2 "glib-compile-schemas is not installed. Aborting."; exit 1; }
 	@command -v eslint >/dev/null 2>&1 || { echo >&2 "ESLint is not installed. Aborting."; exit 1; }
 	@echo "Done."
+
+# ? Compiles the schemas if its directory exists
+compile-schemas:
+	@if [ -d schemas ]; then \
+		glib-compile-schemas schemas; \
+	else \
+		echo "Warning: schemas directory does not exist. Skipping schema compilation."; \
+	fi
 
 # ? Lints JavaScript files if the [src] directory exists
 lint: check
@@ -31,7 +43,7 @@ lint: check
 	fi
 
 # ? Builds the extension
-all: clean pot
+all: clean compile-schemas pot
 	@if [ -d src ]; then \
 		mkdir -p $(BUILDDIR)/$(UUID); \
 		cp src/*.js $(BUILDDIR)/$(UUID)/ || echo "Warning: No JS files found in src."; \
@@ -48,6 +60,7 @@ all: clean pot
 	fi
 	@if [ -d schemas ]; then \
 		cp -r schemas $(BUILDDIR)/$(UUID)/; \
+		glib-compile-schemas $(BUILDDIR)/$(UUID)/schemas; \
 	fi
 	@if [ -d po/mo ]; then \
 		for lang in $$(cat po/mo/LINGUAS); do \
@@ -68,12 +81,20 @@ zip: all
 		cd $(BUILDDIR)/$(UUID) && \
 		gnome-extensions pack -f \
 			--extra-source=schemas \
+			--extra-source=schemas/gschemas.compiled \
 			--extra-source=locale \
 			--extra-source=HijriCalendarKuwaiti.js \
 			--extra-source=PrayTimes.js \
 			--extra-source=stylesheet.css \
 			--out-dir=../; \
 		echo "+ Initial zip creation done"; \
+		# Move gschemas.compiled into the schemas folder inside the zip \
+		unzip ../$(UUID).shell-extension.zip -d ../temp_zip; \
+		mv ../temp_zip/gschemas.compiled ../temp_zip/schemas/; \
+		cd ../temp_zip && zip -r ../final_$(UUID).shell-extension.zip .; \
+		cd .. && rm -rf temp_zip; \
+		rm $(UUID).shell-extension.zip; \
+		mv final_$(UUID).shell-extension.zip $(UUID).shell-extension.zip; \
 		echo "+ Final zip file fixed"; \
 	else \
 		echo "Error: Build directory does not exist. Cannot create ZIP."; \

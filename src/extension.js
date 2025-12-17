@@ -87,6 +87,7 @@ const Azan = GObject.registerClass(
             let today = new Date();
             let dayOfWeek = today.getDay();
             this._timeNames = {
+                suhoor: _('Suhoor'),
                 fajr: _('Al-Fajr'),
                 sunrise: _('Al-Shurooq'),
                 dhuhr: dayOfWeek === 5 ? _('Jummah') : _('Al-Thuhr'),
@@ -99,6 +100,7 @@ const Azan = GObject.registerClass(
             this._primaryPrayers = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
 
             this._timeConciseLevels = {
+                suhoor: 1,
                 fajr: 0,
                 sunrise: 1,
                 dhuhr: 0,
