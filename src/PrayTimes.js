@@ -31,6 +31,7 @@ export function getMethods() {
 
 export function PrayTimes(method) {
     var timeNames = {
+            suhoor: _('Suhoor'),
             fajr: _('Fajr'),
             sunrise: _('Sunrise'),
             dhuhr: _('Dhuhr'),
@@ -47,6 +48,7 @@ export function PrayTimes(method) {
         },
         calcMethod = 'MWL',
         setting = {
+            suhoor: '15 min',
             dhuhr: '0 min',
             asr: 'Standard',
             highLats: 'NightMiddle',
@@ -216,6 +218,11 @@ export function PrayTimes(method) {
             times = this.dayPortion(times);
             let params = setting;
 
+            let suhoor = this.sunAngleTime(
+                this.eval(params.suhoor),
+                times.suhoor,
+                'ccw'
+            );
             let fajr = this.sunAngleTime(
                 this.eval(params.fajr),
                 times.fajr,
@@ -236,6 +243,7 @@ export function PrayTimes(method) {
             let isha = this.sunAngleTime(this.eval(params.isha), times.isha);
 
             return {
+                suhoor: suhoor,
                 fajr: fajr,
                 sunrise: sunrise,
                 dhuhr: dhuhr,
@@ -248,6 +256,7 @@ export function PrayTimes(method) {
 
         computeTimes: function () {
             let times = {
+                suhoor: 5,
                 fajr: 5,
                 sunrise: 6,
                 dhuhr: 12,
@@ -278,6 +287,8 @@ export function PrayTimes(method) {
 
             if (params.highLats != 'None') times = this.adjustHighLats(times);
 
+            if (this.isMin(params.suhoor))
+                times.suhoor = times.fajr - this.eval(params.suhoor) / 60;
             if (this.isMin(params.maghrib))
                 times.maghrib = times.sunset + this.eval(params.maghrib) / 60;
             if (this.isMin(params.isha))
@@ -312,6 +323,13 @@ export function PrayTimes(method) {
             let params = setting;
             let nightTime = this.timeDiff(times.sunset, times.sunrise);
 
+            times.suhoor = this.adjustHLTime(
+                times.suhoor,
+                times.sunrise,
+                this.eval(params.suhoor),
+                nightTime,
+                'ccw'
+            );
             times.fajr = this.adjustHLTime(
                 times.fajr,
                 times.sunrise,

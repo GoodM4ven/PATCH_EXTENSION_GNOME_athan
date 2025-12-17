@@ -147,6 +147,10 @@ msgstr "Umm Al-Qura University, Makkah"
 msgid "Egyptian General Authority of Survey, Egypt"
 msgstr "Egyptian General Authority of Survey, Egypt"
 
+#: src/PrayTimes.js:30
+msgid "Suhoor"
+msgstr "Suhoor"
+
 #: src/extension.js:115 src/PrayTimes.js:22
 msgid "University of Islamic Sciences, Karachi"
 msgstr "University of Islamic Sciences, Karachi"

@@ -148,6 +148,10 @@ msgstr "دانشگاه ام‌القری"
 msgid "Egyptian General Authority of Survey, Egypt"
 msgstr "سازمان کل نقشه‌برداری مصر"
 
+#: src/PrayTimes.js:30
+msgid "Suhoor"
+msgstr "سَحَری"
+
 #: src/extension.js:115 src/PrayTimes.js:22
 msgid "University of Islamic Sciences, Karachi"
 msgstr "دانشگاه علوم اسلامی، کراچی"
