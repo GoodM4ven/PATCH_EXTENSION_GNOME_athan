@@ -468,32 +468,39 @@ const Azan = GObject.registerClass(
             }
 
             const {
-                nearestPrayerId,
+                nextPrayerId,
                 diffMinutes,
                 isTimeForPraying,
                 isAfterAzan,
+                lastPrayerId,
+                minutesSinceLastPrayer,
             } = this._findNearestPrayer(timesFloat, currentSeconds);
 
-            if (nearestPrayerId !== this._lastNotifiedPrayerId) {
+            if (nextPrayerId !== this._lastNotifiedPrayerId) {
                 this._azanNotified = false;
                 this._beforeAzanNotified = false;
-                this._lastNotifiedPrayerId = nearestPrayerId;
+                this._lastNotifiedPrayerId = nextPrayerId;
             }
 
             this._updateIslamicDate();
             this._handlePrayerNotifications(
                 isAfterAzan,
                 diffMinutes,
-                nearestPrayerId,
+                nextPrayerId,
                 timesStr,
                 isTimeForPraying
             );
+
+            const indicatorPrayerId = isAfterAzan
+                ? lastPrayerId ?? nextPrayerId
+                : nextPrayerId;
+
             this._updateIndicatorText(
                 isTimeForPraying,
                 isAfterAzan,
                 diffMinutes,
-                nearestPrayerId,
-                timesStr
+                indicatorPrayerId,
+                minutesSinceLastPrayer
             );
         }
 
@@ -524,10 +531,12 @@ const Azan = GObject.registerClass(
         }
 
         _findNearestPrayer(timesFloat, currentSeconds) {
-            let nearestPrayerId = null;
+            let nextPrayerId = null;
             let minDiffMinutes = Number.MAX_VALUE;
             let isTimeForPraying = false;
             let isAfterAzan = false;
+            let lastPrayerId = null;
+            let minutesSinceLastPrayer = null;
 
             for (const prayerId of this._primaryPrayers) {
                 const prayerSeconds = this._calculatePrayerSeconds(
@@ -549,28 +558,43 @@ const Azan = GObject.registerClass(
                 // ? If it’s prayer time
                 if (diffMinutes === 0) {
                     isTimeForPraying = true;
-                    nearestPrayerId = prayerId;
+                    nextPrayerId = prayerId;
+                    minDiffMinutes = 0;
                     break;
                 }
 
-                // ? If prayer just ended (show "since athan" messages)
-                if (diffMinutes < 0 && diffMinutes >= -15) {
-                    isAfterAzan = true;
-                    nearestPrayerId = prayerId;
+                if (diffMinutes > 0 && diffMinutes < minDiffMinutes) {
+                    minDiffMinutes = diffMinutes;
+                    nextPrayerId = prayerId;
                 }
 
-                // ? Then find the nearest upcoming primary prayer
-                if (diffMinutes >= 0 && diffMinutes < minDiffMinutes) {
-                    minDiffMinutes = diffMinutes;
-                    nearestPrayerId = prayerId;
+                if (diffMinutes < 0) {
+                    const elapsedMinutes = Math.abs(diffMinutes);
+
+                    if (
+                        elapsedMinutes <= 15 &&
+                        (minutesSinceLastPrayer === null ||
+                            elapsedMinutes < minutesSinceLastPrayer)
+                    ) {
+                        isAfterAzan = true;
+                        minutesSinceLastPrayer = elapsedMinutes;
+                        lastPrayerId = prayerId;
+                    }
                 }
             }
 
+            if (!nextPrayerId) {
+                nextPrayerId = this._primaryPrayers[0];
+                minDiffMinutes = 0;
+            }
+
             return {
-                nearestPrayerId,
+                nextPrayerId,
                 diffMinutes: minDiffMinutes,
                 isTimeForPraying,
                 isAfterAzan,
+                lastPrayerId,
+                minutesSinceLastPrayer,
             };
         }
 
@@ -603,7 +627,7 @@ const Azan = GObject.registerClass(
         _handlePrayerNotifications(
             isAfterAzan,
             diffMinutes,
-            nearestPrayerId,
+            nextPrayerId,
             timesStr,
             isTimeForPraying
         ) {
@@ -620,9 +644,9 @@ const Azan = GObject.registerClass(
                         this._opt_notify_before_azan
                     ).format(
                         this._opt_notify_before_azan,
-                        this._timeNames[nearestPrayerId]
+                        this._timeNames[nextPrayerId]
                     ),
-                    _('Prayer time: %s').format(timesStr[nearestPrayerId])
+                    _('Prayer time: %s').format(timesStr[nextPrayerId])
                 );
                 this._beforeAzanNotified = true;
             }
@@ -634,9 +658,9 @@ const Azan = GObject.registerClass(
             ) {
                 Main.notify(
                     _('It’s time for %s prayer.').format(
-                        this._timeNames[nearestPrayerId]
+                        this._timeNames[nextPrayerId]
                     ),
-                    _('Prayer time: %s').format(timesStr[nearestPrayerId])
+                    _('Prayer time: %s').format(timesStr[nextPrayerId])
                 );
                 this._azanNotified = true;
             }
@@ -646,12 +670,31 @@ const Azan = GObject.registerClass(
             isTimeForPraying,
             isAfterAzan,
             diffMinutes,
-            nearestPrayerId
+            indicatorPrayerId,
+            minutesSinceLastPrayer
         ) {
+            if (!indicatorPrayerId) {
+                return;
+            }
             if (isTimeForPraying) {
                 this.indicatorText.set_text(
                     _('It’s time for %s prayer.').format(
-                        this._timeNames[nearestPrayerId]
+                        this._timeNames[indicatorPrayerId]
+                    )
+                );
+                return;
+            }
+
+            if (isAfterAzan && minutesSinceLastPrayer != null) {
+                this.indicatorText.set_text(
+                    pgettext(
+                        'Extention indecator',
+                        '%s • since %s ago'
+                    ).format(
+                        this._timeNames[indicatorPrayerId],
+                        this._formatRemainingTimeFromMinutes(
+                            minutesSinceLastPrayer
+                        )
                     )
                 );
                 return;
@@ -660,7 +703,7 @@ const Azan = GObject.registerClass(
             // ? Default: Show time until the next prayer
             this.indicatorText.set_text(
                 pgettext('Extention indecator', '%s -%s').format(
-                    this._timeNames[nearestPrayerId],
+                    this._timeNames[indicatorPrayerId],
                     this._formatRemainingTimeFromMinutes(diffMinutes)
                 )
             );

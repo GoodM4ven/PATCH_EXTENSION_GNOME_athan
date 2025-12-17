@@ -44,15 +44,15 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 
 - Translated to Arabic systems
 - Minimized and standradized the available settings
-- Dropped the iqama reminder and the "athan since" indicator
+- Dropped the iqama reminder
 - Arabic naming consistency
 - Ensured accessible colors for the design
-- Fixed the positioning issue from that was in GNOME 46 version
+- Fixed the positioning issue
 
 ### Todos
 
-- // TODO refactor the overhaul
-- // Implement the translation as Locale independent setting option
+- // TODO Refactor the overhaul
+- // TODO Implement the translation as locale independent setting option
 
 
 ## Credits
