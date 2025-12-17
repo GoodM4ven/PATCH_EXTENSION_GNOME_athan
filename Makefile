@@ -88,6 +88,12 @@ zip: all
 			--extra-source=PrayTimes.js \
 			--extra-source=stylesheet.css \
 			--out-dir=../; \
+		if [ -f ../$(UUID).shell-extension.zip ]; then \
+			mv ../$(UUID).shell-extension.zip ../$(UUID).zip; \
+		else \
+			echo "Error: Expected archive not generated. Aborting."; \
+			exit 1; \
+		fi; \
 		echo "+ ZIP creation done"; \
 		zip -q -d ../$(UUID).zip gschemas.compiled schemas/gschemas.compiled >/dev/null 2>&1 || true; \
 		echo "+ Removed compiled schema from ZIP"; \
