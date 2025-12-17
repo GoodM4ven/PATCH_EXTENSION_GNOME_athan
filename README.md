@@ -45,6 +45,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - Translated to Arabic systems
 - Minimized and standradized the available settings
 - Dropped the iqama reminder
+- Added Suhoor starting reminder
 - Arabic naming consistency
 - Ensured accessible colors for the design
 - Fixed the positioning issue
@@ -53,6 +54,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 
 - // TODO Refactor the overhaul
 - // TODO Implement the translation as locale independent setting option
+- // TODO An option to display the Hijri date right next to the active prayer label by default
 
 
 ## Credits
@@ -64,6 +66,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - [Farooq](https://github.com/farooqkz)
 - [eltaweel068](https://github.com/eltaweel068)
 - [baronleonardo](https://github.com/baronleonardo)
+- [arcenme](https://github.com/arcenme)
 - All the other contributors for the tree forks!
 - And the generous individuals that we've learned from and been supported by throughout our journey...
 
