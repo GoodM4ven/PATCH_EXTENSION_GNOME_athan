@@ -28,10 +28,11 @@ check:
 
 # ? Compiles the schemas if its directory exists
 compile-schemas:
-	@if [ -d schemas ]; then \
-		glib-compile-schemas schemas; \
+	@if [ -d $(BUILDDIR)/$(UUID)/schemas ]; then \
+		glib-compile-schemas $(BUILDDIR)/$(UUID)/schemas; \
+		echo "+ Schemas compiled into $(BUILDDIR)/$(UUID)/schemas"; \
 	else \
-		echo "Warning: schemas directory does not exist. Skipping schema compilation."; \
+		echo "Warning: Staging schemas directory is missing. Run the build target first."; \
 	fi
 
 # ? Lints JavaScript files if the [src] directory exists
@@ -43,7 +44,7 @@ lint: check
 	fi
 
 # ? Builds the extension
-all: clean compile-schemas pot
+all: clean pot
 	@if [ -d src ]; then \
 		mkdir -p $(BUILDDIR)/$(UUID); \
 		cp src/*.js $(BUILDDIR)/$(UUID)/ || echo "Warning: No JS files found in src."; \
@@ -60,7 +61,7 @@ all: clean compile-schemas pot
 	fi
 	@if [ -d schemas ]; then \
 		cp -r schemas $(BUILDDIR)/$(UUID)/; \
-		glib-compile-schemas $(BUILDDIR)/$(UUID)/schemas; \
+		$(MAKE) compile-schemas; \
 	fi
 	@if [ -d po/mo ]; then \
 		for lang in $$(cat po/mo/LINGUAS); do \
@@ -87,15 +88,9 @@ zip: all
 			--extra-source=PrayTimes.js \
 			--extra-source=stylesheet.css \
 			--out-dir=../; \
-		echo "+ Initial zip creation done"; \
-		# Move gschemas.compiled into the schemas folder inside the zip \
-		unzip ../$(UUID).shell-extension.zip -d ../temp_zip; \
-		mv ../temp_zip/gschemas.compiled ../temp_zip/schemas/; \
-		cd ../temp_zip && zip -r ../final_$(UUID).shell-extension.zip .; \
-		cd .. && rm -rf temp_zip; \
-		rm $(UUID).shell-extension.zip; \
-		mv final_$(UUID).shell-extension.zip $(UUID).shell-extension.zip; \
-		echo "+ Final zip file fixed"; \
+		echo "+ ZIP creation done"; \
+		zip -q -d ../$(UUID).zip gschemas.compiled schemas/gschemas.compiled >/dev/null 2>&1 || true; \
+		echo "+ Removed compiled schema from ZIP"; \
 	else \
 		echo "Error: Build directory does not exist. Cannot create ZIP."; \
 		exit 1; \
@@ -112,8 +107,8 @@ uninstall:
 
 # ? Installs the extension
 install: uninstall zip
-	@if [ -f $(BUILDDIR)/$(UUID).shell-extension.zip ]; then \
-		gnome-extensions install -f $(BUILDDIR)/$(UUID).shell-extension.zip; \
+	@if [ -f $(BUILDDIR)/$(UUID).zip ]; then \
+		gnome-extensions install -f $(BUILDDIR)/$(UUID).zip; \
 		echo "+ Installation done"; \
 	else \
 		echo "Error: ZIP file does not exist. Cannot install."; \

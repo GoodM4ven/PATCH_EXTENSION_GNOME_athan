@@ -1,3 +1,52 @@
+//--------------------- Copyright Block ----------------------
+/* 
+
+PrayTimes.js: Prayer Times Calculator (ver 2.3)
+Copyright (C) 2007-2011 PrayTimes.org
+
+Developer: Hamid Zarrabi-Zadeh
+License: GNU LGPL v3.0
+
+TERMS OF USE:
+	Permission is granted to use this code, with or 
+	without modification, in any website or application 
+	provided that credit is given to the original work 
+	with a link back to PrayTimes.org.
+
+This program is distributed in the hope that it will 
+be useful, but WITHOUT ANY WARRANTY. 
+
+PLEASE DO NOT REMOVE THIS COPYRIGHT BLOCK.
+ 
+*/ 
+//--------------------- Help and Manual ----------------------
+/*
+
+User's Manual: 
+http://praytimes.org/manual
+
+Calculation Formulas: 
+http://praytimes.org/calculation
+
+//------------------------ User Interface -------------------------
+
+	getTimes (date, coordinates [, timeZone [, dst [, timeFormat]]]) 
+	
+	setMethod (method)       // set calculation method 
+	adjust (parameters)      // adjust calculation parameters	
+	tune (offsets)           // tune times by given offsets 
+
+	getMethod ()             // get calculation method 
+	getSetting ()            // get current calculation parameters
+	getOffsets ()            // get current time offsets
+
+//------------------------- Sample Usage --------------------------
+
+	var PT = new PrayTimes('ISNA');
+	var times = PT.getTimes(new Date(), [43, -80], -5);
+	document.write('Sunrise = '+ times.sunrise)
+
+*/
 
 // ? Dummy function nessesary for translation with xgettext tool.
 function _(str) {
