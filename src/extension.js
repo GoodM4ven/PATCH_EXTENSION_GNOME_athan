@@ -307,6 +307,12 @@ const Azan = GObject.registerClass(
                     this._panelPositionArr[this._opt_panel_position];
                 this._updatePanelPosition();
             });
+
+            connectSetting('use-arabic', 'boolean', () => {
+                // Language change requires extension reload
+                // This handler is mainly for notification purposes
+                this._updateLabel();
+            });
         }
 
         _loadSettings() {
@@ -774,8 +780,32 @@ export default class AzanExtension extends Extension {
     enable() {
         this._settings = this.getSettings('org.gnome.shell.extensions.athan');
         this._settingsChangedIds = [];
+        
+        // Check use-arabic setting and set LANGUAGE environment variable
+        const useArabic = this._settings.get_boolean('use-arabic');
+        if (useArabic) {
+            GLib.setenv('LANGUAGE', 'ar', true);
+        }
+        
         this._settingsChangedIds.push(
             this._settings.connect('changed::panel-position', () => {
+                this._updateAzan();
+            })
+        );
+        this._settingsChangedIds.push(
+            this._settings.connect('changed::use-arabic', () => {
+                const useArabic = this._settings.get_boolean('use-arabic');
+                if (useArabic) {
+                    GLib.setenv('LANGUAGE', 'ar', true);
+                } else {
+                    GLib.unsetenv('LANGUAGE');
+                }
+                // Show notification that extension needs reload
+                Main.notify(
+                    _('Extension needs reload'),
+                    _('Please disable and re-enable the extension to apply language changes.')
+                );
+                // Attempt to reload the extension
                 this._updateAzan();
             })
         );
