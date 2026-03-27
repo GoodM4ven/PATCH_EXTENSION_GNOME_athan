@@ -35,6 +35,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 
 ### Supported GNOME Versions:
 
+- [50](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v50)
 - [49](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v49)
 - [48](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v48)
 - [47](https://github.com/GoodM4ven/PATCH_EXTENSION_GNOME_athan/tree/Gnome-v47)
@@ -67,6 +68,7 @@ Spinned VMs to test for both GNOME versions. [GNOME Boxes](https://apps.gnome.or
 - [eltaweel068](https://github.com/eltaweel068)
 - [baronleonardo](https://github.com/baronleonardo)
 - [arcenme](https://github.com/arcenme)
+- [defaultUser822](https://github.com/defaultUser822)
 - All the other contributors for the tree forks!
 - And the generous individuals that we've learned from and been supported by throughout our journey...
 
