@@ -4,7 +4,7 @@
     "url": "https://github.com/goodm4ven/PATCH_EXTENSION_GNOME_athan",
     "description": "A prayer reminder and Hijri date displayer extension. [Originally by fahrinh @ github]\n\nKeywords: Islam, Islamic, notification, time, calendar, prayers.",
     "settings-schema": "org.gnome.shell.extensions.athan",
-    "shell-version": ["49"],
+    "shell-version": ["50"],
     "version": 24,
     "gettext-domain": "athan@goodm4ven"
 }
