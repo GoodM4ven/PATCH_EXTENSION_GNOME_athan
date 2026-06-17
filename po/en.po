@@ -431,3 +431,23 @@ msgstr "10 min"
 #: src/prefs.js:261
 msgid "15 min"
 msgstr "15 min"
+
+#: src/prefs.js:77
+msgid "Higher latitudes method"
+msgstr "Higher latitudes method"
+
+#: src/prefs.js:217
+msgid "Middle of the Night"
+msgstr "Middle of the Night"
+
+#: src/prefs.js:218
+msgid "Angle-Based"
+msgstr "Angle-Based"
+
+#: src/prefs.js:219
+msgid "One-Seventh of the Night"
+msgstr "One-Seventh of the Night"
+
+#: src/prefs.js:220
+msgid "None"
+msgstr "None"
