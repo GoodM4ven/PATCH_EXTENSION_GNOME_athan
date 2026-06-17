@@ -118,6 +118,12 @@ const Azan = GObject.registerClass(
                 _('University of Islamic Sciences, Karachi'),
                 _('Indonesian Ulema Council'),
             ];
+            this._higherLatitudesArr = [
+                'NightMiddle',
+                'AngleBased',
+                'OneSeventh',
+                'None',
+            ]; // ? Mapping to PrayTimes highLats setting
             this._timezoneArr = Array.from({ length: 27 }, (_, index) =>
                 (index - 12).toString()
             );
@@ -265,6 +271,12 @@ const Azan = GObject.registerClass(
                 this._updateLabel.bind(this)
             );
 
+            connectSetting(
+                'higher-latitudes-method',
+                'int',
+                this._updateLabel.bind(this)
+            );
+
             connectSetting('latitude', 'double', this._updateLabel.bind(this));
 
             connectSetting('longitude', 'double', this._updateLabel.bind(this));
@@ -313,6 +325,7 @@ const Azan = GObject.registerClass(
             const settingsKeys = [
                 { key: 'auto-location', type: 'boolean' },
                 { key: 'calculation-method', type: 'int' },
+                { key: 'higher-latitudes-method', type: 'int' },
                 { key: 'latitude', type: 'double' },
                 { key: 'longitude', type: 'double' },
                 { key: 'time-format-12', type: 'boolean' },
@@ -513,7 +526,11 @@ const Azan = GObject.registerClass(
             this._prayTimes.setMethod(
                 this._calcMethodsArr[this._opt_calculation_method]
             );
-            this._prayTimes.adjust({ asr: 'Standard' });
+            this._prayTimes.adjust({
+                asr: 'Standard',
+                highLats:
+                    this._higherLatitudesArr[this._opt_higher_latitudes_method],
+            });
 
             return this._opt_time_format_12
                 ? this._prayTimes.getTimes(

@@ -73,6 +73,10 @@ class Settings {
             title: _('Calculation method'),
             model: this.#calcMethodOptions(),
         });
+        this.field_higher_latitudes_mode = new Adw.ComboRow({
+            title: _('Higher latitudes method'),
+            model: this.#higherLatitudesOptions(),
+        });
         this.field_timezone_mode = new Adw.ComboRow({
             title: _('Timezone'),
             model: this.#timezoneOptions(),
@@ -97,6 +101,7 @@ class Settings {
         });
         this.calculationGroup.add(this.field_hijri_date_adjustment);
         this.calculationGroup.add(this.field_calc_method_mode);
+        this.calculationGroup.add(this.field_higher_latitudes_mode);
         this.calculationGroup.add(this.field_timezone_mode);
 
         this.locationGroup = new Adw.PreferencesGroup({ title: _('Location') });
@@ -166,6 +171,12 @@ class Settings {
             Gio.SettingsBindFlags.DEFAULT
         );
         this.schema.bind(
+            'higher-latitudes-method',
+            this.field_higher_latitudes_mode,
+            'selected',
+            Gio.SettingsBindFlags.DEFAULT
+        );
+        this.schema.bind(
             'timezone',
             this.field_timezone_mode,
             'selected',
@@ -197,6 +208,20 @@ class Settings {
             // ? them with a dummy '_' function to be detected by xgettext
             // ? text extractor tool. 
             list.append(_(value.name));
+        }
+        return list;
+    }
+
+    #higherLatitudesOptions() {
+        let options = [
+            _('Middle of the Night'),
+            _('Angle-Based'),
+            _('One-Seventh of the Night'),
+            _('None'),
+        ];
+        let list = new Gtk.StringList();
+        for (let option of options) {
+            list.append(option);
         }
         return list;
     }
